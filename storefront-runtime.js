@@ -29,7 +29,7 @@ btn?.addEventListener("click",()=>{const open=menu.classList.toggle("open");btn.
 document.addEventListener("keydown",e=>{if(e.key==="Escape"&&menu?.classList.contains("open")){menu.classList.remove("open");btn.setAttribute("aria-expanded","false");btn.focus()}});
 }
 function favorites(){
-$$("[data-fav]").forEach(b=>{const id=b.dataset.fav;if(saved().includes(id))b.textContent="♥ Saved";b.addEventListener("click",()=>{const list=saved(),idx=list.indexOf(id);if(idx>=0)list.splice(idx,1);else list.push(id);if(toStorage("favorites",list)){b.textContent=idx>=0?"♡ Save":"♥ Saved";toast(idx>=0?"Removed from saved ideas":"Saved to My Ideas");}else toast("Could not save this item on your device.")})});
+$("[data-fav]").forEach(b=>{if(b.dataset.favoriteBound==="1")return;b.dataset.favoriteBound="1";const id=b.dataset.fav;if(saved().includes(id))b.textContent="♥ Saved";b.addEventListener("click",()=>{const list=saved(),idx=list.indexOf(id);if(idx>=0)list.splice(idx,1);else list.push(id);if(toStorage("favorites",list)){b.textContent=idx>=0?"♡ Save":"♥ Saved";toast(idx>=0?"Removed from saved ideas":"Saved to My Ideas");}else toast("Could not save this item on your device.")})});
 }
 function shopFilters(){
 const input=$("#shop-query"),select=$("#shop-category"),pills=$("#shop-pills"),list=$("#shop-collections"),sub=$("#shop-products"),heading=$("#shop-subheading"),empty=$("#shop-empty");
