@@ -1,43 +1,28 @@
-# Spider's Creations
+# Spider's Creations — website source
 
-Custom-made gifts, personalized products, and creative designs.
+This is the development build of the custom-product storefront for Spider's Creations, deployed as a static website on Netlify.
 
-Spider's Creations is a custom-product storefront focused on turning customer ideas into unique, personalized items. This repository is intended to hold the website's source code, product catalog, and storefront experience.
+## Site pages
 
-## Products and services
+- Homepage, shop and 19 distinct collection pages
+- 158 custom product types, individual product detail pages, and a design library
+- Product and category search, professional sports league and team search
+- Customization form with text preview, materials, finishes, colors, sizes, quantities and notes
+- Local favorite ideas and quote basket, with edit/remove controls
+- Netlify Forms quote inquiries and optional customer artwork file upload
+- About, FAQs, privacy, terms, 404, thank-you, contact pages
+- Responsive black-and-gold styling and 19 archived concept photographs
 
-- Custom tumblers and drinkware
-- Laser-engraved challenge coins, medals, and trophies
-- Personalized glassware and bottles
-- Custom lighters and gifts
-- 3D-printed products and accessories
-- Canvas prints and other custom printing
-- Wedding, graduation, and celebration gifts
-- Personalized cutting boards and home decor
+## Limitations to verify before launch
 
-## Planned website features
+This is a **quote-based storefront**. It does not charge cards, provide verified stock or prices, issue order confirmations, or guarantee shipping/delivery. Payment integration needs business credentials and confirmation of prices/tax/shipping terms. Netlify Forms must be tested on the deployed preview with detection and notifications configured. The larger collection of 1,002 saved tumbler concepts and 76 coin images is **not yet uploaded to this GitHub branch**. 19 real archived category photographs are present.
 
-- Browsable product categories and individual product pages
-- Customization options for text, fonts, colors, designs, and materials
-- Product previews and customer artwork uploads
-- Shopping cart and secure checkout integration
-- Mobile-friendly layouts and accessible navigation
-- Contact and custom-quote request forms
+Sports team names are for browsing custom inquiries. Official trademarks, team logos and protected characters require permission before reproduction.
 
-## Project status
+## Deploy
 
-**Early setup.** The repository currently does not contain a completed storefront. The features above describe the intended direction and should not be considered live or implemented.
+Netlify: publish directory `.` (repo root), no build command needed. Deploy previews can build directly from the `spiders-storefront-build` branch. Do not merge into `main` until testing passes.
 
-## Development and deployment
-
-- **Source code:** GitHub
-- **Hosting target:** Netlify
-- **Deployment:** Verify that Netlify is linked to this repository before publishing website changes.
-
-## Notes
-
-Pricing, product availability, fulfillment terms, and payment processing will be configured and verified before the store launches.
-
----
+The former starter files `app.js` and `styles.css` are unused; the current website uses `storefront-*.js` and `storefront.css`.
 
 Built for Spider's Creations.

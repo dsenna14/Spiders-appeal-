@@ -1,1 +1,36 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Spider's Creations custom tumblers, challenge coins, laser engraving, gifts, and more."><title>Spider's Creations</title><link rel="stylesheet" href="/styles.css"></head><body><header><div class="wrap nav"><a class="logo" href="#/">SPIDER'S <span>CREATIONS</span></a><nav aria-label="Main navigation"><a href="#/">Home</a><a href="#/shop">Shop</a><a href="#/category/tumblers">Tumblers</a><a href="#/category/coins">Coins</a><a href="#/about">About</a><a href="#/quote">Custom quote</a></nav><a class="pill" href="#/basket">Basket (<span id="cart-count">0</span>)</a></div></header><main id="app"><div class="section wrap">Loading storefront…</div></main><footer class="footer"><div class="wrap"><strong>Spider's Creations</strong><p>Custom gifts, engraving, printing, and personalized creations. Product availability and prices are confirmed individually.</p><a href="#/quote">Contact / Quote</a> · <a href="#/shop">Shop</a></div></footer><form name="custom-order" data-netlify="true" netlify-honeypot="bot-field" hidden><input name="bot-field"><input name="name"><input name="email"><input name="phone"><textarea name="message"></textarea><input name="basket"></form><script src="/app.js" defer></script></body></html>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#090a0d">
+<meta name="description" content="Personalized custom tumblers, challenge coins, engraving, 3D printing, gifts and more. Browse Spider's Creations.">
+<meta property="og:title" content="Spider's Creations | Custom Gifts, Tumblers, Coins & Engraving">
+<meta property="og:description" content="Personalized custom tumblers, challenge coins, engraving, 3D printing, gifts and more. Browse Spider's Creations.">
+<meta property="og:type" content="website">
+<title>Spider's Creations | Custom Gifts, Tumblers, Coins & Engraving</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/storefront.css">
+<script src="/store-data.js" defer></script>
+<script src="/storefront-base.js" defer></script>
+<script src="/storefront-pages.js" defer></script>
+<script src="/storefront-runtime.js" defer></script>
+</head>
+<body>
+<div id="app"><div style="padding:40px;font-family:system-ui;color:#e5c28a;background:#0a0b0d">Loading Spider's Creations…</div></div>
+<noscript><div class="no-js">JavaScript is required to use product search and customization. <a href="/quote.html">Request a custom quote</a>.</div></noscript>
+<form name="project-request" method="POST" action="/thank-you.html" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data" hidden aria-hidden="true">
+<input type="hidden" name="form-name" value="project-request">
+<input type="text" name="bot-field">
+<input type="text" name="customer_name">
+<input type="email" name="email">
+<input type="tel" name="phone">
+<input type="text" name="delivery">
+<input type="text" name="needed_by">
+<input type="text" name="category">
+<textarea name="message"></textarea>
+<input type="file" name="artwork">
+<textarea name="basket"></textarea>
+</form>
+</body>
+</html>
