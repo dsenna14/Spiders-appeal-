@@ -22,9 +22,10 @@
          const remove=document.createElement('button');remove.type='button';remove.className='text-link';remove.textContent='Remove';remove.addEventListener('click',()=>{const next=safe();next.splice(i,1);if(save(next))update()});
          article.append(h,p,edit,remove);host.append(article);
       }
-      const empty=document.querySelector('#basket-empty');if(empty&&arr.length)empty.hidden=true;
-      const clear=document.querySelector('#basket-clear');if(clear&&arr.length)clear.hidden=false;
-      const request=document.querySelector('#basket-request');if(request&&arr.length)request.textContent='Request My Quote';
+      const hasNative=!!document.querySelector('#basket-items .basket-item');
+      const empty=document.querySelector('#basket-empty');if(empty)empty.hidden=arr.length>0||hasNative;
+      const clear=document.querySelector('#basket-clear');if(clear){clear.hidden=!(arr.length||hasNative);if(clear.dataset.mergedClear!=='1'){clear.dataset.mergedClear='1';clear.addEventListener('click',()=>{save([]);update()});}}
+      const request=document.querySelector('#basket-request');if(request)request.textContent=arr.length||hasNative?'Request My Quote':'Start a Project';
    }
    const summary=document.querySelector('#basket-summary');if(summary&&arr.length){
        const extra='Additional product-type requests:\n\n'+arr.map(describe).join('\n\n');
