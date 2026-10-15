@@ -8,10 +8,10 @@ function route(){
 const path=location.pathname.split("/").filter(Boolean);
 const page=path.at(-1)||"index.html";
 if(page==="index.html")return S.home();
-if(page==="shop.html")return S.shop();
+if(page==="shop.html"||page==="product-types.html")return S.shop();
 if(path.includes("collections"))return byCat(page.replace(/\.html$/,""))?S.collection(byCat(page.replace(/\.html$/,""))):P.missing();
 if(page==="product.html")return byId(param("id"))?S.productPage(byId(param("id"))):P.missing();
-if(page==="customize.html")return P.customize();
+if(page==="customize.html"||page==="product-customize.html")return P.customize();
 if(page==="basket.html")return P.basketPage();
 if(page==="quote.html"||page==="contact.html")return P.quote();
 if(page==="designs.html")return P.designs();
