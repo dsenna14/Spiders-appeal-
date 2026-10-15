@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#090a0d">
+<meta name="description" content="See custom product details, save ideas, and request personalization.">
+<meta property="og:title" content="Product Details | Spider's Creations">
+<meta property="og:description" content="See custom product details, save ideas, and request personalization.">
+<meta property="og:type" content="website">
+<title>Product Details | Spider's Creations</title>
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/storefront.css">
+<script src="/store-data.js" defer></script>
+<script src="/storefront-base.js" defer></script>
+<script src="/storefront-pages.js" defer></script>
+<script src="/storefront-runtime.js" defer></script>
+</head>
+<body>
+<div id="app"><div style="padding:40px;font-family:system-ui;color:#e5c28a;background:#0a0b0d">Loading Spider's Creations…</div></div>
+<noscript><div class="no-js">JavaScript is required to use product search and customization. <a href="/quote.html">Request a custom quote</a>.</div></noscript>
+<form name="project-request" method="POST" action="/thank-you.html" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data" hidden aria-hidden="true">
+<input type="hidden" name="form-name" value="project-request">
+<input type="text" name="bot-field">
+<input type="text" name="customer_name">
+<input type="email" name="email">
+<input type="tel" name="phone">
+<input type="text" name="delivery">
+<input type="text" name="needed_by">
+<input type="text" name="category">
+<textarea name="message"></textarea>
+<input type="file" name="artwork">
+<textarea name="basket"></textarea>
+</form>
+</body>
+</html>

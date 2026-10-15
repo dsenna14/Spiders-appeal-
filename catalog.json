@@ -1,0 +1,393 @@
+[
+  {
+    "slug": "kitchenware",
+    "title": "Kitchenware",
+    "tagline": "A personal centerpiece for the kitchen.",
+    "description": "Cutting boards, serving boards, recipe keepsakes, and gifts for the table.",
+    "materials": [
+      "Walnut",
+      "Maple",
+      "Bamboo",
+      "Customer-supplied board"
+    ],
+    "ideas": [
+      "Name or monogram",
+      "Handwritten recipe",
+      "Family message",
+      "Business logo"
+    ],
+    "brief": "Board dimensions and intended use help us choose a useful engraving area.",
+    "note": "Woodgrain and engraving contrast vary naturally. Tell us whether the piece is for food preparation or display."
+  },
+  {
+    "slug": "trophies",
+    "title": "Trophies",
+    "tagline": "Make the win memorable.",
+    "description": "Championship cups, team awards, and personalized bases that celebrate the achievement.",
+    "materials": [
+      "Metal cup with engraved plate",
+      "Acrylic award",
+      "Wooden base",
+      "Customer-supplied trophy"
+    ],
+    "ideas": [
+      "Winner and date",
+      "Team logo",
+      "Season record",
+      "Event title"
+    ],
+    "brief": "Send the award title, winner names, and presentation date.",
+    "note": "For a group of awards, include a spreadsheet or list with the exact wording for each recipient."
+  },
+  {
+    "slug": "medals",
+    "title": "Medals",
+    "tagline": "A small award with a big meaning.",
+    "description": "Personalized medals for sports, school events, clubs, and milestone achievements.",
+    "materials": [
+      "Gold-tone metal",
+      "Silver-tone metal",
+      "Bronze-tone metal",
+      "Customer-supplied medal"
+    ],
+    "ideas": [
+      "Placement and event",
+      "Name and date",
+      "Club emblem",
+      "Short message"
+    ],
+    "brief": "Tell us the event, medal count, finish preference, and ribbon needs.",
+    "note": "Include the medal diameter and whether front, back, or both sides should be personalized."
+  },
+  {
+    "slug": "tumblers",
+    "title": "Tumblers",
+    "tagline": "Their everyday drink. Their own design.",
+    "description": "Custom names, logos, and wrap concepts for tumblers, bottles, and travel drinkware.",
+    "materials": [
+      "Powder-coated stainless steel",
+      "Bare stainless steel",
+      "Customer-supplied tumbler"
+    ],
+    "ideas": [
+      "Name",
+      "Business logo",
+      "Full-wrap concept",
+      "Monogram"
+    ],
+    "brief": "Include capacity, brand or model, and your preferred base color.",
+    "note": "Artwork color is a design preference. The engraving result depends on the coating and underlying material."
+  },
+  {
+    "slug": "glassware",
+    "title": "Glassware",
+    "tagline": "Make the next toast personal.",
+    "description": "Engraved wine glasses, rocks glasses, mugs, and matching gift sets.",
+    "materials": [
+      "Wine glass",
+      "Rocks glass",
+      "Glass mug",
+      "Customer-supplied glassware"
+    ],
+    "ideas": [
+      "Initials",
+      "Wedding date",
+      "Logo",
+      "Personal message"
+    ],
+    "brief": "Share the glass style, set size, and engraving placement.",
+    "note": "Simple, high-contrast artwork is a strong starting point for a clear etched design."
+  },
+  {
+    "slug": "printing",
+    "title": "Custom Printing",
+    "tagline": "Bring your artwork into everyday life.",
+    "description": "Colorful graphics for shirts, gifts, panels, and compatible personal items.",
+    "materials": [
+      "Cotton garment",
+      "Polyester blend",
+      "Coated hard surface",
+      "Material to be confirmed"
+    ],
+    "ideas": [
+      "Photo",
+      "Full-color illustration",
+      "Team graphic",
+      "Logo"
+    ],
+    "brief": "Send the intended item, print dimensions, artwork, and quantity.",
+    "note": "We\u2019ll confirm a suitable process after reviewing your substrate and the artwork."
+  },
+  {
+    "slug": "canvas",
+    "title": "Canvas Prints",
+    "tagline": "Give a favorite image room to shine.",
+    "description": "Photo canvases, family portraits, artwork reproductions, and meaningful wall pieces.",
+    "materials": [
+      "Stretched canvas",
+      "Canvas panel",
+      "Size and finish to be confirmed"
+    ],
+    "ideas": [
+      "Photo portrait",
+      "Landscape",
+      "Artwork",
+      "Text with image"
+    ],
+    "brief": "Provide the original image, preferred size, and portrait or landscape orientation.",
+    "note": "Leave room around important faces and lettering if you want the artwork to wrap around an edge."
+  },
+  {
+    "slug": "lighters",
+    "title": "Custom Lighters",
+    "tagline": "A compact canvas for a personal mark.",
+    "description": "Detailed designs, names, and messages on compatible metal lighters and lighter cases.",
+    "materials": [
+      "Brass finish",
+      "Brushed stainless finish",
+      "Black-coated metal",
+      "Customer-supplied lighter case"
+    ],
+    "ideas": [
+      "Name or initials",
+      "Scrollwork concept",
+      "Line-art graphic",
+      "Short quote"
+    ],
+    "brief": "Specify the exact lighter or case model and the surfaces to customize.",
+    "note": "For customer-supplied items, send a clear photo and dimensions before finalizing the project."
+  },
+  {
+    "slug": "liquor-bottles",
+    "title": "Bottles & Decanters",
+    "tagline": "A gift worth displaying.",
+    "description": "Engraved bottle and decanter projects for milestones, celebrations, and personal collections.",
+    "materials": [
+      "Glass decanter",
+      "Compatible glass bottle",
+      "Customer-supplied glass"
+    ],
+    "ideas": [
+      "Milestone date",
+      "Monogram",
+      "Presentation message",
+      "Line-art emblem"
+    ],
+    "brief": "Include a photo of the bottle, the label position, and the desired engraving area.",
+    "note": "This is a personalization request for the vessel. Contents and product sourcing are discussed separately."
+  },
+  {
+    "slug": "wedding",
+    "title": "Wedding Items",
+    "tagline": "Details that feel like the two of you.",
+    "description": "Keepsake boxes, table details, personalized glassware, favors, and bridal party gifts.",
+    "materials": [
+      "Wood keepsake",
+      "Glassware",
+      "Acrylic detail",
+      "Mixed gift set"
+    ],
+    "ideas": [
+      "Names and date",
+      "Wedding monogram",
+      "Guest personalization",
+      "Bridal party role"
+    ],
+    "brief": "Tell us the wedding date, theme, quantities, and which items should coordinate.",
+    "note": "Provide guest names in one checked list when ordering individually personalized pieces."
+  },
+  {
+    "slug": "signs-decor",
+    "title": "Signs & Decor",
+    "tagline": "Make a space feel like yours.",
+    "description": "Personal signs, slate portraits, housewarming gifts, and decorative pieces.",
+    "materials": [
+      "Slate",
+      "Wood",
+      "Acrylic",
+      "Coated metal"
+    ],
+    "ideas": [
+      "Pet portrait",
+      "House number",
+      "Family name",
+      "Business sign"
+    ],
+    "brief": "Send the size, intended location, and how the piece will be displayed.",
+    "note": "Outdoor exposure, mounting, and material suitability are reviewed before the final quote."
+  },
+  {
+    "slug": "awards",
+    "title": "Awards & Keepsakes",
+    "tagline": "Recognition with a personal signature.",
+    "description": "Engraved plaques, decorative medallions, coins, and milestone keepsakes.",
+    "materials": [
+      "Wood plaque",
+      "Metal medallion",
+      "Acrylic award",
+      "Customer-supplied piece"
+    ],
+    "ideas": [
+      "Recognition wording",
+      "Commemorative emblem",
+      "Name and service date",
+      "Custom line art"
+    ],
+    "brief": "Include the occasion, exact award wording, dimensions, and quantity.",
+    "note": "For a presentation piece, tell us whether you need a stand, display case, or gift packaging."
+  },
+  {
+    "slug": "apparel",
+    "title": "Apparel & Patches",
+    "tagline": "Give the whole crew a common thread.",
+    "description": "Custom shirts, hats, team gear, and personalized leather-patch concepts.",
+    "materials": [
+      "Cotton shirt",
+      "Blend shirt",
+      "Hat with leather patch",
+      "Leather patch only"
+    ],
+    "ideas": [
+      "Team graphic",
+      "Chest logo",
+      "Patch emblem",
+      "Name or number"
+    ],
+    "brief": "Send garment sizes, colors, placement, and the quantity in each size.",
+    "note": "Patch appearance and attachment depend on the garment, material, and selected production method."
+  },
+  {
+    "slug": "transfers",
+    "title": "DTF Transfers",
+    "tagline": "Your design. Ready for your press.",
+    "description": "Gang sheets and individual transfers for your next apparel or merchandise run.",
+    "materials": [
+      "Ready-to-press apparel transfer",
+      "Gang sheet",
+      "Prepared artwork review"
+    ],
+    "ideas": [
+      "Single design",
+      "Repeated design",
+      "Mixed gang sheet",
+      "Left-chest logo"
+    ],
+    "brief": "Specify final artwork dimensions, quantity, and the garment type.",
+    "note": "Use the sheet planner for repeated designs, or upload a prepared sheet with your project request."
+  },
+  {
+    "slug": "phone-cases",
+    "title": "Phone Cases",
+    "tagline": "A personal look for the device you carry.",
+    "description": "Photo, artwork, monogram, and logo concepts for compatible phone cases.",
+    "materials": [
+      "Clear hard case",
+      "White hard case",
+      "Customer-supplied compatible case"
+    ],
+    "ideas": [
+      "Photo collage",
+      "Single photo",
+      "Monogram",
+      "Full-color artwork"
+    ],
+    "brief": "Enter the exact phone model and case model, plus any grip or charging requirements.",
+    "note": "Phone generations can have different camera openings. Fit is confirmed before ordering a blank."
+  },
+  {
+    "slug": "gaming",
+    "title": "Gaming Covers",
+    "tagline": "Make the setup unmistakably yours.",
+    "description": "Custom artwork concepts for compatible console faceplates and gaming accessories.",
+    "materials": [
+      "Compatible white hard cover",
+      "Compatible clear hard cover",
+      "Customer-supplied cover"
+    ],
+    "ideas": [
+      "Full-color artwork",
+      "Name or gamer tag",
+      "Matching pair",
+      "Minimal graphic"
+    ],
+    "brief": "List the exact console model, generation, and disc or digital version.",
+    "note": "Only compatible existing cover blanks are considered; dimensions and fit must be verified."
+  },
+  {
+    "slug": "laptop-cases",
+    "title": "Laptop Cases",
+    "tagline": "A cover with your own point of view.",
+    "description": "Personal photo, artwork, and brand concepts for compatible laptop shells.",
+    "materials": [
+      "Compatible clear shell",
+      "Compatible white shell",
+      "Customer-supplied hard shell"
+    ],
+    "ideas": [
+      "Photo",
+      "Logo",
+      "Pattern",
+      "Monogram"
+    ],
+    "brief": "Include the laptop model number, year, screen size, and shell details.",
+    "note": "Ventilation and openings must stay clear; the exact shell fit is reviewed before production."
+  },
+  {
+    "slug": "stickers-decals",
+    "title": "Stickers & Decals",
+    "tagline": "Small details. Plenty of personality.",
+    "description": "Logo decals, label concepts, and artwork transfers for compatible hard surfaces.",
+    "materials": [
+      "UV transfer for compatible hard surface",
+      "Printed sticker",
+      "Decal material to be confirmed"
+    ],
+    "ideas": [
+      "Logo sheet",
+      "Individual design",
+      "Name labels",
+      "Custom shape"
+    ],
+    "brief": "Share the application surface, finished dimensions, and quantity.",
+    "note": "Adhesion and durability depend on the material and intended use. Include whether it will be washed or used outdoors."
+  },
+  {
+    "slug": "glow-effects",
+    "title": "Glow Effects",
+    "tagline": "A different look when the lights change.",
+    "description": "Glow-style apparel and graphic concepts for bold custom projects.",
+    "materials": [
+      "Compatible glow transfer",
+      "Specialty garment graphic",
+      "Material to be confirmed"
+    ],
+    "ideas": [
+      "Bold lettering",
+      "Line art",
+      "Accent detail",
+      "High-contrast graphic"
+    ],
+    "brief": "Tell us the desired visual effect, garment type, placement, and print size.",
+    "note": "The effect, available colors, and care instructions depend on the approved specialty material."
+  },
+  {
+    "slug": "keychains-promo",
+    "title": "Keychains & Promo",
+    "tagline": "Your brand, ready to go.",
+    "description": "Personalized keychains, small gifts, and branded handouts for teams and events.",
+    "materials": [
+      "Acrylic",
+      "Wood",
+      "Metal",
+      "Compatible promotional blank"
+    ],
+    "ideas": [
+      "Logo",
+      "Name",
+      "Short message",
+      "Event artwork"
+    ],
+    "brief": "Specify the item, dimensions, quantity, and whether each piece needs a unique name.",
+    "note": "Share your budget per piece so we can discuss a practical material and finish."
+  }
+]
