@@ -1,28 +1,27 @@
-# Spider's Creations — website source
+# Spider's Creations — merged storefront
 
-This is the development build of the custom-product storefront for Spider's Creations, deployed as a static website on Netlify.
+Original black-and-gold storefront, real design gallery, quote-based customization, and saved project basket.
 
-## Site pages
+## What is implemented
+- 36 static HTML pages for products, shop categories, designs, customization, 3D prints, printing, awards, gallery and corporate inquiries.
+- 1,078 unique design records (1,002 tumblers; 76 saved coins), categorized, searchable, filterable and favoritable.
+- Responsive accessible layouts, homepage and capabilities pages, mobile menu and home breadcrumbs.
+- Browser-local project basket and customizer; Netlify Forms-compatible inquiry forms.
+- On the GitHub branch, 68 **sprite sheets** carry the *real image previews* for all 1,078 designs; original high-resolution assets are retained only in the complete downloadable ZIP, not in GitHub. Sprite previews are for browsing, not a production print file.
 
-- Homepage, shop and 19 distinct collection pages
-- 158 custom product types, individual product detail pages, and a design library
-- Product and category search, professional sports league and team search
-- Customization form with text preview, materials, finishes, colors, sizes, quantities and notes
-- Local favorite ideas and quote basket, with edit/remove controls
-- Netlify Forms quote inquiries and optional customer artwork file upload
-- About, FAQs, privacy, terms, 404, thank-you, contact pages
-- Responsive black-and-gold styling and 19 archived concept photographs
+## Netlify deployment
+Static site, no npm build required. `netlify.toml` contains:
+```
+[build]
+  publish = "."
+```
+Connect this GitHub branch as a deploy preview, or merge to `main` only after testing.
 
-## Limitations to verify before launch
+## What is NOT configured
+- Payment checkout, shipping, tax collection, actual pricing or inventory are NOT integrated.
+- Netlify Forms submissions require verified live Netlify form detection and notifications; test after deployment before accepting customer requests.
+- User sign-in is not provided; 'My Projects' uses browser-local storage only.
+- Artwork inspired by professional sports teams or media may require permission/licensing before commercial sale.
 
-This is a **quote-based storefront**. It does not charge cards, provide verified stock or prices, issue order confirmations, or guarantee shipping/delivery. Payment integration needs business credentials and confirmation of prices/tax/shipping terms. Netlify Forms must be tested on the deployed preview with detection and notifications configured. The larger collection of 1,002 saved tumbler concepts and 76 coin images is **not yet uploaded to this GitHub branch**. 19 real archived category photographs are present.
-
-Sports team names are for browsing custom inquiries. Official trademarks, team logos and protected characters require permission before reproduction.
-
-## Deploy
-
-Netlify: publish directory `.` (repo root), no build command needed. Deploy previews can build directly from the `spiders-storefront-build` branch. Do not merge into `main` until testing passes.
-
-The former starter files `app.js` and `styles.css` are unused; the current website uses `storefront-*.js` and `storefront.css`.
-
-Built for Spider's Creations.
+## Original photos
+Download the complete ZIP for full-resolution WebP preview assets. The GitHub branch intentionally includes compressed sprite versions so it can be pushed and served efficiently.

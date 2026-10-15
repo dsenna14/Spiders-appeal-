@@ -1,36 +1,3 @@
-<!doctype html>
-<html lang="en">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#090a0d">
-<meta name="description" content="Review saved personalized product concepts before requesting a price quote.">
-<meta property="og:title" content="Your Quote Basket | Spider's Creations">
-<meta property="og:description" content="Review saved personalized product concepts before requesting a price quote.">
-<meta property="og:type" content="website">
-<title>Your Quote Basket | Spider's Creations</title>
-<link rel="icon" href="/favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="/storefront.css">
-<script src="/store-data.js" defer></script>
-<script src="/storefront-base.js" defer></script>
-<script src="/storefront-pages.js" defer></script>
-<script src="/storefront-runtime.js" defer></script>
-</head>
-<body>
-<div id="app"><div style="padding:40px;font-family:system-ui;color:#e5c28a;background:#0a0b0d">Loading Spider's Creations…</div></div>
-<noscript><div class="no-js">JavaScript is required to use product search and customization. <a href="/quote.html">Request a custom quote</a>.</div></noscript>
-<form name="project-request" method="POST" action="/thank-you.html" data-netlify="true" netlify-honeypot="bot-field" enctype="multipart/form-data" hidden aria-hidden="true">
-<input type="hidden" name="form-name" value="project-request">
-<input type="text" name="bot-field">
-<input type="text" name="customer_name">
-<input type="email" name="email">
-<input type="tel" name="phone">
-<input type="text" name="delivery">
-<input type="text" name="needed_by">
-<input type="text" name="category">
-<textarea name="message"></textarea>
-<input type="file" name="artwork">
-<textarea name="basket"></textarea>
-</form>
-</body>
-</html>
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/><meta content="#0a0a0a" name="theme-color"/><title>Your Project Basket | Spiders Creations</title><meta content="Save custom products, adjust quantities, and send your selections to Spiders Creations for a quote." name="description"/><meta content="noindex" name="robots"/><meta content="Your Project Basket | Spiders Creations" property="og:title"/><meta content="Save custom products, adjust quantities, and send your selections to Spiders Creations for a quote." property="og:description"/><meta content="website" property="og:type"/><link href="images/favicon.svg" rel="icon" type="image/svg+xml"/><link href="css/styles.css" rel="stylesheet"/><script defer="" src="js/main.js"></script><link href="css/designs.css" rel="stylesheet"/></head><body><a class="skip" href="#main">Skip to content</a><header class="site-header"><div class="header-inner"><a aria-label="Spiders Creations home" class="brand" href="index.html"><span class="brand-title">SPIDERS <strong>CREATIONS</strong><span class="brand-star">✦</span></span><span class="brand-caption">LASER ENGRAVING &amp; DESIGN</span></a><button aria-controls="navigation" aria-expanded="false" class="menu-toggle" type="button"><span aria-hidden="true" class="menu-bars"></span><span>Menu</span></button><nav aria-label="Main navigation" class="navigation" id="navigation"><a href="gallery.html">Gallery</a><a href="shop.html">Shop</a><a href="designs.html">Design Library</a><a href="3d-printing.html">3D Printing</a><a href="customize.html">Customize</a><a href="what-we-make.html">What We Make</a><a href="product-types.html">Product Types</a><a class="account-link" href="account.html" title="View projects saved in this browser">My Projects</a><a aria-current="page" aria-label="Project basket" class="basket-link" href="basket.html"><svg aria-hidden="true" fill="none" height="21" stroke="currentColor" stroke-width="1.6" viewbox="0 0 24 24" width="21"><path d="M3 4h2l2 12h12l2-8H6M9 20h.01M18 20h.01" stroke-linecap="round"></path><circle cx="9" cy="20" r="1"></circle><circle cx="18" cy="20" r="1"></circle></svg><span data-cart-count="">0</span></a><a class="button" href="contact.html">Start a Project</a></nav></div></header><main id="main"><div class="site-wayfinding container"><a href="index.html">← Home</a><a href="shop.html">Shop all collections</a></div><section class="page-intro container"><p class="eyebrow">Your ideas, together</p><h1>Your project<br/><span>starts here.</span></h1><p class="lead">Save the pieces you like, then tell us how to make them yours. We’ll confirm pricing and timing before any order is placed.</p></section><section class="container basket-layout section-bottom"><div><div aria-live="polite" id="basket-items"></div><section aria-labelledby="product-types-basket-title" hidden="" id="product-types-basket"><h2 id="product-types-basket-title">Saved product-type requests</h2><div id="product-types-basket-items"></div></section><div class="empty-state" id="basket-empty"><span aria-hidden="true" class="large-star">✦</span><h2>What will you create?</h2><p>Your project basket is ready for an idea. Explore the collections and save your favorites.</p><a class="button" href="shop.html">Explore Collections</a></div><noscript><p>The project basket needs JavaScript. You can still <a href="contact.html">send a project request directly</a>.</p></noscript></div><aside class="aside-card"><p class="eyebrow">Made to order</p><h2>A quote made for you.</h2><p>Custom prices depend on the product, design, quantity, and delivery date.</p><p class="small">Selections are saved in this browser only. They are not a paid order or a reservation.</p><a class="button" href="contact.html?basket=1" id="basket-request">Request My Quote</a><button class="text-link" id="basket-clear" type="button">Clear basket</button><p class="small" id="storage-message" role="status"></p></aside></section></main><footer class="site-footer"><div class="container footer-grid"><div><a class="brand" href="index.html"><span class="brand-title">SPIDERS <strong>CREATIONS</strong></span><span class="brand-caption">LASER ENGRAVING &amp; DESIGN</span></a><p class="footer-tagline">You Think It. We Create It.</p><span class="badge">Designed around you</span></div><div><h2>Explore</h2><a href="gallery.html">Our work</a><a href="shop.html">Shop custom</a><a href="product-types.html">All 158 product types</a><a href="dtf-transfers.html">DTF transfers</a><a href="shop.html#supplies">Pro supplies</a></div><div><h2>Create together</h2><a href="experiences.html">Events &amp; experiences</a><a href="corporate.html">Corporate &amp; bulk</a><a href="contact.html">Start a project</a><a href="basket.html">Project basket</a></div><div><h2>Let’s create</h2><a href="contact.html">Send a project request</a><a href="customize.html">Customize your design</a><p>Ask about mobile engraving<br/>for your next event.</p></div></div><div class="container footer-bottom"><span>© 2026 Spiders Creations</span><span>Made to order. Made to mean something.</span><a href="account.html">My saved projects</a></div></footer><div aria-live="polite" class="toast" id="toast" role="status"></div><script defer="" src="js/merge-bridge.js"></script></body></html>

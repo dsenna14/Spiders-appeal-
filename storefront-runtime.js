@@ -46,7 +46,7 @@ sub.innerHTML=show?matches.map(itemCard).join(""):"";
 empty.hidden=featured.length+matches.length>0;
 pills.innerHTML=[{id:"",name:"All collections"},...cats.slice(0,9)].map(c=>`<button type="button" class="chip ${category===c.id?"active":""}" data-category="${c.id}">${esc(c.name)}</button>`).join("");
 const params=new URLSearchParams();if(q)params.set("q",input.value.trim());if(category)params.set("category",category);
-history.replaceState(null,"","/shop.html"+(params.size?"?"+params.toString():""));
+history.replaceState(null,"","/product-types.html"+(params.size?"?"+params.toString():""));
 favorites();
 };
 input.addEventListener("input",update);
@@ -59,7 +59,7 @@ function teamFilters(){
 const league=$("#league-filter"),input=$("#team-query"),list=$("#teams-list"),count=$("#teams-count");if(!league)return;
 const teams=S.dataset.teams||{};
 if(teams[param("league")])league.value=param("league");
-const update=()=>{const q=input.value.trim().toLocaleLowerCase();const match=(teams[league.value]||[]).filter(t=>t.toLocaleLowerCase().includes(q));list.innerHTML=match.map(t=>`<a class="chip" href="/customize.html?id=wraps-1&team=${encodeURIComponent(t)}">${esc(t)} →</a>`).join("");count.textContent=match.length+" teams in "+league.value;};
+const update=()=>{const q=input.value.trim().toLocaleLowerCase();const match=(teams[league.value]||[]).filter(t=>t.toLocaleLowerCase().includes(q));list.innerHTML=match.map(t=>`<a class="chip" href="/product-customize.html?id=wraps-1&team=${encodeURIComponent(t)}">${esc(t)} →</a>`).join("");count.textContent=match.length+" teams in "+league.value;};
 league.addEventListener("change",update);input.addEventListener("input",update);$("#team-search-button").addEventListener("click",update);update();
 }
 function customizing(){
