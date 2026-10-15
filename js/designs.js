@@ -66,7 +66,7 @@
     container.replaceChildren();const known=['Football','Basketball','Baseball','Hockey','Soccer','Other Sports','Graduation','Celebrations','Fantasy & Medieval','Animals & Nature','Sports & Fishing','Animals','Floral & Botanical','Fishing & Coastal','Anime & Fantasy','Psychedelic & Abstract','Holidays & Celebrations'];
     const counts=new Map();for(const p of DATA)counts.set(p.category,(counts.get(p.category)||0)+1);
     const allLink=button('button','catalog-chip'+(!state.category?' is-active':''),'All designs');allLink.type='button';allLink.addEventListener('click',()=>{state.category='';state.team='';state.group='';state.limit=36;refresh();});container.append(allLink);
-    for(const category of known.filter(k=>counts.has(k))){const pill=button('button','catalog-chip'+(state.category===category?' is-active':''),`${category} (${counts.get(category)})`);pill.type='button';pill.addEventListener('click',()=>{state.category=state.category===category?'':category;state.group=['Football','Basketball','Baseball','Hockey','Soccer','Other Sports'].includes(state.category)?'Sports':(['Graduation','Celebrations','Fantasy & Medieval','Animals & Nature','Sports & Fishing'].includes(state.category)?'Coins':(state.category?'Themes':''));state.team='';state.level='';state.limit=36;refresh();});container.append(pill);}
+    for(const category of known.filter(k=>counts.has(k))){const pill=button('button','catalog-chip'+(state.category===category?' is-active':''),category);pill.type='button';pill.addEventListener('click',()=>{state.category=state.category===category?'':category;state.group=['Football','Basketball','Baseball','Hockey','Soccer','Other Sports'].includes(state.category)?'Sports':(['Graduation','Celebrations','Fantasy & Medieval','Animals & Nature','Sports & Fishing'].includes(state.category)?'Coins':(state.category?'Themes':''));state.team='';state.level='';state.limit=36;refresh();});container.append(pill);}
   }
   function renderCatalog(){
     const grid=$('#design-grid');if(!grid)return;
@@ -78,8 +78,8 @@
     grid.replaceChildren(...visible.map(createCard));
     $('#catalog-empty').hidden=filtered.length!==0;
     const more=$('#load-more');more.hidden=filtered.length<=state.limit;
-    text($('#shown-count'),`Showing ${visible.length.toLocaleString()} of ${filtered.length.toLocaleString()} matching designs`);
-    text($('#results-status'),`${filtered.length.toLocaleString()} ${filtered.length===1?'design':'designs'} found`);
+    text($('#shown-count'),'Choose a design to view details or personalize it.');
+    text($('#results-status'),filtered.length?'Browse your matching designs below.':'No designs match these filters. Try another style.');
     const active=$('#active-filters');active.replaceChildren();
     for(const [key,label] of [['q','Search'],['group','Collection'],['category','Category'],['team','Team'],['level','Level']]){
       if(!state[key])continue;
@@ -88,7 +88,7 @@
   }
   function refresh(){updateSelects();renderQuickCategories();renderCatalog();syncURL();}
   function startBrowse(){
-    text($('#total-designs'),DATA.length.toLocaleString());
+    text($('#total-designs'),'Create something personal');
     $('#catalog-query').value=state.q;
     $('#catalog-sort-select').value=state.sort;
     $('#favorites-only').checked=state.favorites;
