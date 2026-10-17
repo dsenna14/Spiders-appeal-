@@ -59,7 +59,17 @@ try{
   assert(captions.every(x=>x.startsWith(label)),'Wrong designs appeared for '+type);
  }
  await go('designs.html?category=NFL');
- await wait(page,'#design-grid .design-card');
+ try{await wait(page,'#design-grid .design-card')}catch(e){
+  const diagnostics=await page.evaluate(()=>({url:location.href,body:document.body?.dataset,
+   grid:document.querySelector('#design-grid')?.innerHTML?.slice(0,1300),
+   status:document.querySelector('#results-status')?.textContent,
+   category:document.querySelector('#category-filter')?.value,
+   group:document.querySelector('#group-filter')?.value,
+   selectCount:document.querySelector('#category-filter')?.options.length,
+   errors:[...document.querySelectorAll('script[src]')].map(x=>x.src)
+  }));
+  console.error('GALLERY_DIAGNOSTIC',JSON.stringify({diagnostics,problems}));throw e;
+ }
  const first=await page.locator('.design-card-image').first().getAttribute('href');
  assert(first?.includes('product-customize.html?id=hypechains-'),'Legacy gallery not linked to hype chain customizer');
  if(problems.length)throw Error('Uncaught browser errors: '+problems.join(' | '));
