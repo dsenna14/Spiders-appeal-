@@ -51,7 +51,7 @@ try{
  await expectCards('#studio-shop-grid .studio-design-card',20);
  const mixed=await page.locator('.studio-design-category').allTextContents();
  assert(new Set(mixed.slice(0,12).map(t=>t.split('/')[0].trim())).size>=4,'All-products shop not interleaved');
- for(const [type,label] of [['puzzles','Puzzles'],['boards','Cutting Boards'],['phone-cases','Phone Cases']]){
+ for(const [type,label] of [['puzzles','Custom Puzzles'],['boards','Cutting Boards'],['phone-cases','Phone Cases']]){
   await go('shop.html?type='+type);
   await wait(page,'#studio-shop-grid .studio-design-card');
   assert.equal(await page.locator('#studio-shop-type').inputValue(),type,'Type filter was not selected: '+type);
