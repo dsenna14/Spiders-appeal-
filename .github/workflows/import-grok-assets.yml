@@ -1,0 +1,27 @@
+name: Publish Grok artwork catalogs
+on:
+  push:
+    branches: [main]
+    paths: [".import-parts/**"]
+permissions:
+  contents: write
+jobs:
+  publish:
+    if: contains(github.event.head_commit.message, '[import-grok-art]')
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+      - name: Verify ZIP checksum and extract artwork
+        run: python3 scripts/import_grok_assets.py
+      - name: Commit 1,522 original artwork previews and index
+        run: |
+          git config user.name "Spider's Creations Art Importer"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add images/grok data/grok-designs.json data/grok-provenance.json
+          git rm -r .import-parts
+          git diff --cached --quiet && exit 0
+          git commit -m "Publish 1,522 unique Grok designs and optimized previews"
+          git push origin HEAD:main
