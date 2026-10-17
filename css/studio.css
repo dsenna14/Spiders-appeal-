@@ -33,3 +33,13 @@
 
 /* Clarity and conversion refinements */
 .studio-category-tools{display:flex;align-items:center;gap:20px;justify-content:space-between;margin:8px 0 24px}.studio-category-tools label{color:#e2c190;font-weight:760;font-size:.88rem}.studio-category-tools input{flex:1;max-width:410px;min-height:45px;border:1px solid #8c714d;border-radius:8px;padding:12px 15px;background:#15130e;color:#f9f0e4}.studio-category-tools input:focus-visible{outline:3px solid #f6daaa;outline-offset:2px}.studio-category-toggle{text-align:center;margin-top:29px}.studio-category-toggle .button{min-height:45px}.studio-category-status{margin:8px 0;color:#ecd3a5}.studio-service-links{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin-top:15px;margin-bottom:75px}.studio-service-links>a{background:#221e17;border:1px solid #ccaa6f55;border-radius:13px;padding:36px 32px;display:block}.studio-service-links h2{font-size:clamp(1.45rem,2.5vw,2.4rem);margin:12px 0}.studio-service-links p{color:#c0b4a3;max-width:550px;line-height:1.65}.studio-service-links strong{display:inline-block;margin-top:13px;color:#f0c789}.studio-service-links a:hover{border-color:#f6d29b}.studio-category-card[hidden]{display:none!important}@media(max-width:700px){.studio-category-tools{flex-direction:column;align-items:stretch;gap:8px}.studio-category-tools input{max-width:none}.studio-service-links{grid-template-columns:1fr}.studio-service-links>a{padding:28px 24px}}
+
+/* Dropdown-driven creation entry and category browsing */
+.studio-search-control select{appearance:auto;flex:1;min-width:0;color:#fff;background:#221f19;border:0;padding:13px 18px;font:inherit;cursor:pointer}
+.studio-search-control select:focus-visible,.studio-category-tools select:focus-visible{outline:3px solid #e9c88e;outline-offset:-3px}
+.studio-search-control select option,.studio-category-tools select option{color:#211b10;background:#fff}
+.studio-category-tools select{min-height:49px;width:min(100%,460px);padding:10px 15px;border-radius:9px;color:#f9ecdc;background:#171513;border:1px solid #a48350;cursor:pointer;font:inherit}
+.studio-category-image img{background:#2b241a;object-fit:cover}
+.collection-product-visual img.collection-real-photo{display:block;width:100%;aspect-ratio:4/3;height:auto;object-fit:cover}
+.studio-design-cover>img{width:100%;aspect-ratio:4/5;object-fit:cover;display:block}
+@media(max-width:530px){.studio-category-tools{align-items:stretch;flex-direction:column;gap:9px}.studio-category-tools select{width:100%}.studio-search-control select{font-size:.9rem;max-width:100%}.studio-search-control button{padding:0 15px}}
