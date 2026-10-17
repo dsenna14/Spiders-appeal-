@@ -18,7 +18,8 @@ patches:"images/collection-apparel.webp",printing3d:"images/3d-collection.jpg",
 transfers:"images/collection-transfers.webp",gifts:"images/wedding-favors.jpg",
 metal:"images/coin.jpg",promo:"images/printing.jpg",
 wraps:"images/tumblers.jpg",
-puzzles:"https://images.unsplash.com/photo-1735380675901-4867fad9d670?auto=format&fit=crop&w=900&q=82"
+puzzles:"https://images.unsplash.com/photo-1735380675901-4867fad9d670?auto=format&fit=crop&w=900&q=82",
+balloons:"https://images.unsplash.com/photo-1513151233558-d860c5398176?auto=format&fit=crop&w=900&q=82"
 });
 window.spidersCategoryPhoto=id=>window.SPIDERS_CATEGORY_IMAGES[id]||"images/printing.jpg";
 window.spidersPhotoFallback=(img)=>{img.onerror=null;img.src="images/printing.jpg";};
