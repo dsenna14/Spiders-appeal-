@@ -33,7 +33,8 @@
     fav.addEventListener('click',()=>{const val=toggleFavorite(p.id);fav.textContent=val?'♥':'♡';fav.setAttribute('aria-pressed',String(val));fav.setAttribute('aria-label',val?'Remove from favorites':'Save to favorites');if($('#favorites-only')?.checked)renderCatalog();});
     card.append(picture,fav);
     const body=document.createElement('div');body.className='design-card-body';
-    const type=button('p','design-card-type',(p.category||'Custom')+' • '+(p.productCategory?({'hypechains':'Hype Chain','puzzles':'Puzzle','boards':'Cutting Board','phone-cases':'Phone Case'}[p.productCategory]||'Custom'):p.kind==='coin-concept'?'Coin Design':'Tumbler Design')));
+    const family=p.productCategory?({'hypechains':'Hype Chain','puzzles':'Puzzle','boards':'Cutting Board','phone-cases':'Phone Case'}[p.productCategory]||'Custom'):(p.kind==='coin-concept'?'Coin Design':'Tumbler Design');
+    const type=button('p','design-card-type',(p.category||'Custom')+' • '+family);
     const title=document.createElement('h3');const link=document.createElement('a');link.href=picture.href;link.textContent=p.name;title.append(link);
     const foot=document.createElement('div');foot.className='design-card-foot';
     const tier=button('span','design-price-note','Price on request');const view=document.createElement('a');view.href=picture.href;view.textContent='Personalize →';view.className='design-view';
