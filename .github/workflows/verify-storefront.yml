@@ -1,0 +1,20 @@
+name: Verify Spider's Creations storefront
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  check-site:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+      - name: Validate catalog, assets, category selectors, and photo links
+        run: python3 scripts/verify_storefront.py
+      - name: Parse all storefront JavaScript
+        run: |
+          for file in js/studio.js js/studio-customize.js js/shop-hub.js js/collection.js js/studio-data.js js/category-images.js store-data.js; do
+            node --check "$file"
+          done
