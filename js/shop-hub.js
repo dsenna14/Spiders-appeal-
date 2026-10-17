@@ -15,7 +15,7 @@
  const designURL=id=>'design.html?id='+encodeURIComponent(id);
  const norm=s=>String(s||'').toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g,'');
  const extra=[['tumblers','collection-tumblers.webp'],['coins','collection-awards.webp'],['engraving','collection-awards.webp'],['boards','collection-kitchenware.webp'],['glassware','collection-glassware.webp'],['awards','collection-trophies.webp'],['medals','collection-medals.webp'],['wedding','collection-wedding.webp'],['printing','collection-printing.webp'],['patches','collection-apparel.webp'],['lighters','collection-lighters.webp'],['bottles','collection-liquor-bottles.webp'],['canvas','collection-canvas.webp'],['printing3d','collection-gaming.webp'],['transfers','collection-transfers.webp'],['gifts','collection-wedding.webp'],['metal','collection-awards.webp'],['promo','collection-printing.webp'],['wraps','collection-tumblers.webp']];
- const imageMap=Object.fromEntries(extra.map(([k,v])=>[k,'images/'+v]));
+ const imageMap={...Object.fromEntries(extra.map(([k,v])=>[k,'images/'+v])),...(window.SPIDERS_CATEGORY_IMAGES||{})};
  const rules={
   tumblers:[['Sizes & drinkware styles',/\b(20|30|40)\s?oz\b|straw|insulated|bottle|cup|skinny/i],['Sports & team designs',/sport|team|football|basketball|baseball|hockey|soccer/i],['Fishing & outdoors',/fish|coastal|camp|outdoor|boat/i],['Animals, flowers & artwork',/wildlife|animal|floral|botan|psychedelic|abstract|nature/i]],
   coins:[['Military & first responders',/military|veteran|firefighter|responder|police/i],['Milestones & awards',/graduat|retire|birthday|annivers|recognition|celebrat/i],['Fantasy & historical',/fantasy|medieval|viking|norse|dragon/i],['Animals & nature',/animal|wildlife|nature/i]],
