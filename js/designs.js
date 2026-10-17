@@ -23,15 +23,17 @@
     tile.style.backgroundPosition=(s.x/(s.cols-1)*100)+'% '+(s.y/(s.rows-1)*100)+'%';
     return tile;
   }
+  const PRODUCT_IDS={'hypechains':'hypechains-1','puzzles':'puzzles-1','boards':'boards-1','phone-cases':'phone-cases-1'};
+  const designHref=p=>p.productCategory?'product-customize.html?id='+encodeURIComponent(PRODUCT_IDS[p.productCategory])+'&design='+encodeURIComponent(p.id):'design.html?id='+encodeURIComponent(p.id);
   function createCard(p){
     const card=document.createElement('article');card.className='design-card';
-    const picture=document.createElement('a');picture.className='design-card-image';picture.href='design.html?id='+encodeURIComponent(p.id);picture.setAttribute('aria-label','View '+p.name);
+    const picture=document.createElement('a');picture.className='design-card-image';picture.href=designHref(p);picture.setAttribute('aria-label','View '+p.name);
     picture.append(imageTile(p));
     const fav=button('button','design-heart',favorites.has(p.id)?'♥':'♡');fav.type='button';fav.setAttribute('aria-label',favorites.has(p.id)?'Remove from favorites':'Save to favorites');fav.setAttribute('aria-pressed',String(favorites.has(p.id)));
     fav.addEventListener('click',()=>{const val=toggleFavorite(p.id);fav.textContent=val?'♥':'♡';fav.setAttribute('aria-pressed',String(val));fav.setAttribute('aria-label',val?'Remove from favorites':'Save to favorites');if($('#favorites-only')?.checked)renderCatalog();});
     card.append(picture,fav);
     const body=document.createElement('div');body.className='design-card-body';
-    const type=button('p','design-card-type',(p.category||'Custom')+' • '+(p.kind==='coin-concept'?'Coin Design':'Tumbler Design'));
+    const type=button('p','design-card-type',(p.category||'Custom')+' • '+(p.productCategory?({'hypechains':'Hype Chain','puzzles':'Puzzle','boards':'Cutting Board','phone-cases':'Phone Case'}[p.productCategory]||'Custom'):p.kind==='coin-concept'?'Coin Design':'Tumbler Design')));
     const title=document.createElement('h3');const link=document.createElement('a');link.href=picture.href;link.textContent=p.name;title.append(link);
     const foot=document.createElement('div');foot.className='design-card-foot';
     const tier=button('span','design-price-note','Price on request');const view=document.createElement('a');view.href=picture.href;view.textContent='Personalize →';view.className='design-view';
@@ -63,10 +65,10 @@
   }
   function renderQuickCategories(){
     const container=$('#quick-categories');if(!container)return;
-    container.replaceChildren();const known=['Football','Basketball','Baseball','Hockey','Soccer','Other Sports','Graduation','Celebrations','Fantasy & Medieval','Animals & Nature','Sports & Fishing','Animals','Floral & Botanical','Fishing & Coastal','Anime & Fantasy','Psychedelic & Abstract','Holidays & Celebrations'];
+    container.replaceChildren();const known=['NFL','NBA','MLB','NHL','Anime Inspired','Wildlife Animals','Psychedelic Trippy','Sports Outdoors','Flowers Botanical','Football','Basketball','Baseball','Hockey','Soccer','Other Sports','Graduation','Celebrations','Fantasy & Medieval','Animals & Nature','Sports & Fishing','Animals','Floral & Botanical','Fishing & Coastal','Anime & Fantasy','Psychedelic & Abstract','Holidays & Celebrations'];
     const counts=new Map();for(const p of DATA)counts.set(p.category,(counts.get(p.category)||0)+1);
     const allLink=button('button','catalog-chip'+(!state.category?' is-active':''),'All designs');allLink.type='button';allLink.addEventListener('click',()=>{state.category='';state.team='';state.group='';state.limit=36;refresh();});container.append(allLink);
-    for(const category of known.filter(k=>counts.has(k))){const pill=button('button','catalog-chip'+(state.category===category?' is-active':''),category);pill.type='button';pill.addEventListener('click',()=>{state.category=state.category===category?'':category;state.group=['Football','Basketball','Baseball','Hockey','Soccer','Other Sports'].includes(state.category)?'Sports':(['Graduation','Celebrations','Fantasy & Medieval','Animals & Nature','Sports & Fishing'].includes(state.category)?'Coins':(state.category?'Themes':''));state.team='';state.level='';state.limit=36;refresh();});container.append(pill);}
+    for(const category of known.filter(k=>counts.has(k))){const pill=button('button','catalog-chip'+(state.category===category?' is-active':''),category);pill.type='button';pill.addEventListener('click',()=>{state.category=state.category===category?'':category;state.group=['NFL','NBA','MLB','NHL'].includes(state.category)?'Hype Chains':['Football','Basketball','Baseball','Hockey','Soccer','Other Sports'].includes(state.category)?'Sports':(['Graduation','Celebrations','Fantasy & Medieval','Animals & Nature','Sports & Fishing'].includes(state.category)?'Coins':(state.category?'Themes':''));state.team='';state.level='';state.limit=36;refresh();});container.append(pill);}
   }
   function renderCatalog(){
     const grid=$('#design-grid');if(!grid)return;
@@ -118,7 +120,7 @@
     return {ok,message:ok?'Added to your project basket. You can continue browsing or request a quote.':'Browser storage is unavailable; please send your instructions through the contact form.'};
   }
   function startDetail(){
-    const id=params().get('id');const p=DATA.find(item=>item.id===id);
+    const id=params().get('id');const p=DATA.find(item=>item.id===id);if(p?.productCategory){location.replace(designHref(p));return;}
     if(!p){text($('#detail-title'),'Design not found');text($('#breadcrumb-name'),'Not found');text($('#detail-category'),'INVALID DESIGN LINK');$('#design-request-form').hidden=true;return;}
     document.title=p.name+' | Spiders Creations';text($('#detail-title'),p.name);text($('#breadcrumb-name'),p.name);text($('#detail-category'),`${p.category} / ${p.kind==='coin-concept'?'Coin':'Tumbler'} concept`);
     const img=$('#detail-image');if(p.sprite){img.hidden=true;img.insertAdjacentElement('afterend',imageTile(p,true));}else{img.src=p.image;img.alt=p.name+' original saved design preview';}
@@ -148,5 +150,14 @@
     const similar=$('#related-grid').closest('section');if(!others.length)similar.hidden=true;
   }
   function fail(error){const info='The design catalog could not load. Verify data/designs.json is deployed along with the image folders.';const host=$('#results-status')||$('#detail-title');text(host,info);console.error(error);}
-  fetch('data/designs.json',{cache:'default'}).then(r=>{if(!r.ok)throw new Error(`Catalog HTTP ${r.status}`);return r.json();}).then(items=>{if(!Array.isArray(items))throw new Error('Invalid catalog');DATA=items;if(document.body.dataset.designPage==='browse')startBrowse();else startDetail();}).catch(fail);
+  Promise.allSettled([
+    fetch('data/designs.json',{cache:'default'}).then(r=>{if(!r.ok)throw Error('Original artwork unavailable');return r.json()}),
+    fetch('data/grok-designs.json',{cache:'default'}).then(r=>{if(!r.ok)throw Error('Grok artwork unavailable');return r.json()})
+  ]).then(([original,imported])=>{
+    const legacy=original.status==='fulfilled'&&Array.isArray(original.value)?original.value:[];
+    const fresh=imported.status==='fulfilled'&&Array.isArray(imported.value?.designs)?imported.value.designs:[];
+    DATA=[...legacy,...fresh].filter(x=>x&&x.id&&x.name);
+    if(!DATA.length)throw Error('No artwork catalogs could load');
+    if(document.body.dataset.designPage==='browse')startBrowse();else startDetail();
+  }).catch(fail);
 })();
