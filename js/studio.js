@@ -43,6 +43,7 @@ function renderShop(){const root=$('#studio-shop-grid');if(!root)return;const in
  $('#studio-shop-filter').addEventListener('submit',e=>{e.preventDefault();limit=28;draw()});input.addEventListener('input',()=>{limit=28;draw()});type.addEventListener('change',()=>{cat.value='';team.value='';updateFilters();limit=28;draw()});cat.addEventListener('change',()=>{team.value='';updateFilters();limit=28;draw()});team.addEventListener('change',()=>{limit=28;draw()});more.addEventListener('click',()=>{limit+=28;draw()});$('#studio-shop-clear').addEventListener('click',()=>{input.value='';type.value='all';activeTheme='';cat.value='';team.value='';limit=28;updateFilters();draw();input.focus()});
  const additional=[['hypechains','Hype Chains'],['puzzles','Puzzles'],['boards','Cutting Boards'],['phone-cases','Phone Cases']];
  for(const [id,label] of additional)if(![...type.options].some(o=>o.value===id))type.append(new Option(label,id));
+ type.value=['all','tumblers','coins','hypechains','puzzles','boards','phone-cases'].includes(qp.get('type'))?qp.get('type'):'all';
  Promise.allSettled([fetch('data/designs.json').then(r=>{if(!r.ok)throw Error('Saved artwork unavailable');return r.json()}),fetch('data/grok-designs.json').then(r=>{if(!r.ok)throw Error('Grok artwork unavailable');return r.json()})]).then(([legacy,imported])=>{
  const original=legacy.status==='fulfilled'&&Array.isArray(legacy.value)?legacy.value:[];
  const grok=imported.status==='fulfilled'&&Array.isArray(imported.value?.designs)?imported.value.designs:[];
