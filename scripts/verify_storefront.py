@@ -48,7 +48,7 @@ for kind in ("hypechains","puzzles","balloons","phone-cases"):
     assert_true('"id":"'+kind+'"' in (ROOT/"js/studio-data.js").read_text(encoding="utf-8"),f"Missing product category {kind}")
 # Verify local images linked in the category map exist; remote Unsplash images are not verified here.
 images=(ROOT/"js/category-images.js").read_text(encoding="utf-8")
-for match in re.findall(r'["\\'](images/[^"\\']+\\.(?:webp|jpg|jpeg|png))["\\']',images):
+for match in re.findall(r'"(images/[^"]+\\.(?:webp|jpg|jpeg|png))"',images):
     assert_true((ROOT/match).is_file(),f"Category image does not exist: {match}")
 if errors:
     for e in errors:print("FAIL:",e,file=sys.stderr)
