@@ -3,7 +3,7 @@
   'use strict';
   const fold = value => String(value == null ? '' : value)
     .normalize('NFKD').replace(/[\u0300-\u036f]/g, '')
-    .toLowerCase().replace(/[_–—\\/-]+/g, ' ').replace(/[^a-z0-9\s]/g, ' ')
+    .toLowerCase().replace(/[_–—-]+/g, ' ').replaceAll('/', ' ').replace(/[^a-z0-9\s]/g, ' ')
     .replace(/\s+/g, ' ').trim();
 
   const aliases = {
