@@ -39,7 +39,7 @@
 
   function isTeamFriendly(p) {
     const title=fold(p.title||'');
-    return /team|sports|sport|football|nfl|jersey|hype chain|fan|helmet/.test(title);
+    return /\b(team|sports?|football|nfl|jersey|fan|helmet)\b|hype chain/.test(title);
   }
 
   function termsFor(p,kind) {
