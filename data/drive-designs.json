@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "imported": 28,
+  "imported": 42,
   "source": "Google Drive: TV_Shows_and_Games_Products",
   "designs": [
     {
@@ -628,6 +628,314 @@
       "image": "images/drive/balloons/170-birthday-girl-gone-wild.jpg",
       "source": "Google Drive verified balloon photo October 18, 2026",
       "sourceFile": "balloon_170_birthday-girl-gone-wild.jpg"
+    },
+    {
+      "id": "drive-phonecase-stranger-things-04",
+      "name": "Stranger Things Phone Case — Design 04",
+      "group": "TV & Streaming",
+      "category": "TV Shows & Characters",
+      "team": "",
+      "level": "",
+      "kind": "drive-photo",
+      "productCategory": "phone-cases",
+      "tags": [
+        "Stranger Things",
+        "Phone Case",
+        "phone-cases",
+        "television",
+        "tv shows",
+        "Stranger_Things"
+      ],
+      "thumb": "images/drive/phone-cases/stranger-things-04.jpg",
+      "image": "images/drive/phone-cases/stranger-things-04.jpg",
+      "source": "Verified Google Drive product photo",
+      "sourceFile": "phonecase_Stranger_Things_04.jpg"
+    },
+    {
+      "id": "drive-phonecase-stranger-things-02",
+      "name": "Stranger Things Phone Case — Design 02",
+      "group": "TV & Streaming",
+      "category": "TV Shows & Characters",
+      "team": "",
+      "level": "",
+      "kind": "drive-photo",
+      "productCategory": "phone-cases",
+      "tags": [
+        "Stranger Things",
+        "Phone Case",
+        "phone-cases",
+        "television",
+        "tv shows",
+        "Stranger_Things"
+      ],
+      "thumb": "images/drive/phone-cases/stranger-things-02.jpg",
+      "image": "images/drive/phone-cases/stranger-things-02.jpg",
+      "source": "Verified Google Drive product photo",
+      "sourceFile": "phonecase_Stranger_Things_02.jpg"
+    },
+    {
+      "id": "drive-tumbler-game-of-thrones-04",
+      "name": "Game of Thrones Tumbler — Design 04",
+      "group": "TV & Streaming",
+      "category": "TV Shows & Characters",
+      "team": "",
+      "level": "",
+      "kind": "drive-photo",
+      "productCategory": "tumblers",
+      "tags": [
+        "Game of Thrones",
+        "Tumbler",
+        "tumblers",
+        "television",
+        "tv shows",
+        "Game_of_Thrones"
+      ],
+      "thumb": "images/drive/tumblers/game-of-thrones-04.jpg",
+      "image": "images/drive/tumblers/game-of-thrones-04.jpg",
+      "source": "Verified Google Drive product photo",
+      "sourceFile": "tumbler_Game_of_Thrones_04.jpg"
+    },
+    {
+      "id": "drive-tumbler-game-of-thrones-02",
+      "name": "Game of Thrones Tumbler — Design 02",
+      "group": "TV & Streaming",
+      "category": "TV Shows & Characters",
+      "team": "",
+      "level": "",
+      "kind": "drive-photo",
+      "productCategory": "tumblers",
+      "tags": [
+        "Game of Thrones",
+        "Tumbler",
+        "tumblers",
+        "television",
+        "tv shows",
+        "Game_of_Thrones"
+      ],
+      "thumb": "images/drive/tumblers/game-of-thrones-02.jpg",
+      "image": "images/drive/tumblers/game-of-thrones-02.jpg",
+      "source": "Verified Google Drive product photo",
+      "sourceFile": "tumbler_Game_of_Thrones_02.jpg"
+    },
+    {
+      "id": "drive-puzzle-wednesday-04",
+      "name": "Wednesday Puzzle — Design 04",
+      "group": "TV & Streaming",
+      "category": "TV Shows & Characters",
+      "team": "",
+      "level": "",
+      "kind": "drive-photo",
+      "productCategory": "puzzles",
+      "tags": [
+        "Wednesday",
+        "Puzzle",
+        "puzzles",
+        "television",
+        "tv shows",
+        "Wednesday"
+      ],
+      "thumb": "images/drive/puzzles/wednesday-04.jpg",
+      "image": "images/drive/puzzles/wednesday-04.jpg",
+      "source": "Verified Google Drive product photo",
+      "sourceFile": "puzzle_Wednesday_04.jpg"
+    },
+    {
+      "id": "drive-puzzle-wednesday-02",
+      "name": "Wednesday Puzzle — Design 02",
+      "group": "TV & Streaming",
+      "category": "TV Shows & Characters",
+      "team": "",
+      "level": "",
+      "kind": "drive-photo",
+      "productCategory": "puzzles",
+      "tags": [
+        "Wednesday",
+        "Puzzle",
+        "puzzles",
+        "television",
+        "tv shows",
+        "Wednesday"
+      ],
+      "thumb": "images/drive/puzzles/wednesday-02.jpg",
+      "image": "images/drive/puzzles/wednesday-02.jpg",
+      "source": "Verified Google Drive product photo",
+      "sourceFile": "puzzle_Wednesday_02.jpg"
+    },
+    {
+      "id": "drive-phonecase-the-mandalorian-04",
+      "name": "The Mandalorian Phone Case — Design 04",
+      "group": "TV & Streaming",
+      "category": "TV Shows & Characters",
+      "team": "",
+      "level": "",
+      "kind": "drive-photo",
+      "productCategory": "phone-cases",
+      "tags": [
+        "The Mandalorian",
+        "Phone Case",
+        "phone-cases",
+        "television",
+        "tv shows",
+        "The_Mandalorian"
+      ],
+      "thumb": "images/drive/phone-cases/the-mandalorian-04.jpg",
+      "image": "images/drive/phone-cases/the-mandalorian-04.jpg",
+      "source": "Verified Google Drive product photo",
+      "sourceFile": "phonecase_The_Mandalorian_04.jpg"
+    },
+    {
+      "id": "drive-phonecase-the-mandalorian-02",
+      "name": "The Mandalorian Phone Case — Design 02",
+      "group": "TV & Streaming",
+      "category": "TV Shows & Characters",
+      "team": "",
+      "level": "",
+      "kind": "drive-photo",
+      "productCategory": "phone-cases",
+      "tags": [
+        "The Mandalorian",
+        "Phone Case",
+        "phone-cases",
+        "television",
+        "tv shows",
+        "The_Mandalorian"
+      ],
+      "thumb": "images/drive/phone-cases/the-mandalorian-02.jpg",
+      "image": "images/drive/phone-cases/the-mandalorian-02.jpg",
+      "source": "Verified Google Drive product photo",
+      "sourceFile": "phonecase_The_Mandalorian_02.jpg"
+    },
+    {
+      "id": "drive-tumbler-one-piece-04",
+      "name": "One Piece Tumbler — Design 04",
+      "group": "Anime & Manga",
+      "category": "Anime & Manga",
+      "team": "",
+      "level": "",
+      "kind": "drive-photo",
+      "productCategory": "tumblers",
+      "tags": [
+        "One Piece",
+        "Tumbler",
+        "tumblers",
+        "anime",
+        "manga",
+        "One_Piece"
+      ],
+      "thumb": "images/drive/tumblers/one-piece-04.jpg",
+      "image": "images/drive/tumblers/one-piece-04.jpg",
+      "source": "Verified Google Drive product photo",
+      "sourceFile": "tumbler_One_Piece_04.jpg"
+    },
+    {
+      "id": "drive-tumbler-one-piece-01",
+      "name": "One Piece Tumbler — Design 01",
+      "group": "Anime & Manga",
+      "category": "Anime & Manga",
+      "team": "",
+      "level": "",
+      "kind": "drive-photo",
+      "productCategory": "tumblers",
+      "tags": [
+        "One Piece",
+        "Tumbler",
+        "tumblers",
+        "anime",
+        "manga",
+        "One_Piece"
+      ],
+      "thumb": "images/drive/tumblers/one-piece-01.jpg",
+      "image": "images/drive/tumblers/one-piece-01.jpg",
+      "source": "Verified Google Drive product photo",
+      "sourceFile": "tumbler_One_Piece_01.jpg"
+    },
+    {
+      "id": "drive-puzzle-demon-slayer-02",
+      "name": "Demon Slayer Puzzle — Design 02",
+      "group": "Anime & Manga",
+      "category": "Anime & Manga",
+      "team": "",
+      "level": "",
+      "kind": "drive-photo",
+      "productCategory": "puzzles",
+      "tags": [
+        "Demon Slayer",
+        "Puzzle",
+        "puzzles",
+        "anime",
+        "manga",
+        "Demon_Slayer"
+      ],
+      "thumb": "images/drive/puzzles/demon-slayer-02.jpg",
+      "image": "images/drive/puzzles/demon-slayer-02.jpg",
+      "source": "Verified Google Drive product photo",
+      "sourceFile": "puzzle_Demon_Slayer_02.jpg"
+    },
+    {
+      "id": "drive-puzzle-demon-slayer-04",
+      "name": "Demon Slayer Puzzle — Design 04",
+      "group": "Anime & Manga",
+      "category": "Anime & Manga",
+      "team": "",
+      "level": "",
+      "kind": "drive-photo",
+      "productCategory": "puzzles",
+      "tags": [
+        "Demon Slayer",
+        "Puzzle",
+        "puzzles",
+        "anime",
+        "manga",
+        "Demon_Slayer"
+      ],
+      "thumb": "images/drive/puzzles/demon-slayer-04.jpg",
+      "image": "images/drive/puzzles/demon-slayer-04.jpg",
+      "source": "Verified Google Drive product photo",
+      "sourceFile": "puzzle_Demon_Slayer_04.jpg"
+    },
+    {
+      "id": "drive-tumbler-yellowstone-04",
+      "name": "Yellowstone Tumbler — Design 04",
+      "group": "TV & Streaming",
+      "category": "TV Shows & Characters",
+      "team": "",
+      "level": "",
+      "kind": "drive-photo",
+      "productCategory": "tumblers",
+      "tags": [
+        "Yellowstone",
+        "Tumbler",
+        "tumblers",
+        "television",
+        "tv shows",
+        "Yellowstone"
+      ],
+      "thumb": "images/drive/tumblers/yellowstone-04.jpg",
+      "image": "images/drive/tumblers/yellowstone-04.jpg",
+      "source": "Verified Google Drive product photo",
+      "sourceFile": "tumbler_Yellowstone_04.jpg"
+    },
+    {
+      "id": "drive-tumbler-yellowstone-02",
+      "name": "Yellowstone Tumbler — Design 02",
+      "group": "TV & Streaming",
+      "category": "TV Shows & Characters",
+      "team": "",
+      "level": "",
+      "kind": "drive-photo",
+      "productCategory": "tumblers",
+      "tags": [
+        "Yellowstone",
+        "Tumbler",
+        "tumblers",
+        "television",
+        "tv shows",
+        "Yellowstone"
+      ],
+      "thumb": "images/drive/tumblers/yellowstone-02.jpg",
+      "image": "images/drive/tumblers/yellowstone-02.jpg",
+      "source": "Verified Google Drive product photo",
+      "sourceFile": "tumbler_Yellowstone_02.jpg"
     }
   ],
   "description": "Verified, locally hosted Google Drive product photos. All other Drive images remain in source folders until individually verified and imported."
