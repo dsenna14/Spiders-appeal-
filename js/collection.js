@@ -52,30 +52,39 @@
  const makeCard=(item,index,examples)=>{
   const article=document.createElement('article');article.className='collection-product';
   const link=document.createElement('a');link.href=productLink(item.id);link.className='collection-product-visual';link.setAttribute('aria-label','Customize '+item.title);
-  if(examples?.[index]){const concept=examples[index],sp=concept.sprite;if(sp){const tile=document.createElement('span');tile.className='collection-art-sprite';tile.setAttribute('role','img');tile.setAttribute('aria-label',concept.name+' artwork inspiration');tile.style.backgroundImage='url("'+encodeURI(sp.src).replace(/"/g,'%22')+'")';tile.style.backgroundSize=(sp.cols*100)+'% '+(sp.rows*100)+'%';tile.style.backgroundPosition=(sp.x/(sp.cols-1)*100)+'% '+(sp.y/(sp.rows-1)*100)+'%';link.append(tile);const badge=document.createElement('small');badge.textContent='Design inspiration';link.append(badge)}}
+  if(examples?.[index]){const concept=examples[index],sp=concept.sprite;if(sp){const tile=document.createElement('span');tile.className='collection-art-sprite';tile.setAttribute('role','img');tile.setAttribute('aria-label',concept.name+' artwork inspiration');tile.style.backgroundImage='url("'+encodeURI(sp.src).replace(/"/g,'%22')+'")';tile.style.backgroundSize=(sp.cols*100)+'% '+(sp.rows*100)+'%';tile.style.backgroundPosition=(sp.x/(sp.cols-1)*100)+'% '+(sp.y/(sp.rows-1)*100)+'%';link.append(tile);const badge=document.createElement('small');badge.textContent='Design inspiration';link.append(badge)}else if(concept.thumb||concept.image){const photo=document.createElement('img');photo.src=concept.thumb||concept.image;photo.alt=concept.name+' verified product photo';photo.className='collection-real-photo';photo.loading='lazy';photo.style.cssText='width:100%;height:100%;object-fit:cover;aspect-ratio:4/3';link.append(photo)}}
   if(!link.childNodes.length){const photo=document.createElement('img');photo.className='collection-real-photo';photo.src=image;photo.alt=title+' category photo inspiration';photo.loading='lazy';photo.onerror=()=>{photo.onerror=null;photo.src='images/printing.jpg'};photo.style.cssText='width:100%;height:100%;object-fit:cover;aspect-ratio:4/3';link.append(photo);}
     const body=document.createElement('div');body.className='collection-product-body';const mini=document.createElement('p');mini.className='eyebrow';mini.textContent=subcategory(item);const name=document.createElement('h3');const a=document.createElement('a');a.href=productLink(item.id);a.textContent=item.title;name.append(a);const sub=document.createElement('p');sub.textContent='Customize the design, wording, material and finish to suit your occasion.';const button=document.createElement('a');button.className='button collection-gold-button';button.href=productLink(item.id);button.textContent='Customize this item →';body.append(mini,name,sub,button);article.append(link,body);return article;
  };
  let inspirational=[];const uniqueExamples=[];
- function draw(){const q=normalized(search.value).trim().split(/\s+/).filter(Boolean);const list=(cat.items||[]).filter(p=>(!active||subcategory(p)===active)&&q.every(w=>normalized([p.title,p.description,subcategory(p)].join(' ')).includes(w)));host.replaceChildren(...list.slice(0,max).map((p,i)=>makeCard(p,i,inspirational)));more.hidden=list.length<=max;status.textContent=list.length?'Choose an item below to start customizing.':'No matching items. Try another search or style.';filters.replaceChildren();const createBtn=(text,key)=>{const b=document.createElement('button');b.type='button';b.className='collection-filter';b.setAttribute('aria-pressed',String(active===key));b.textContent=text;b.addEventListener('click',()=>{active=key;max=12;const u=new URL(location.href);key?u.searchParams.set('group',key):u.searchParams.delete('group');history.replaceState(null,'',u.pathname+u.search);draw()});filters.append(b)};createBtn('All products','');for(const key of groups.keys())createBtn(key,key)}
+ function draw(){const q=normalized(search.value).trim().split(/\s+/).filter(Boolean);const list=(cat.items||[]).filter(p=>(!active||subcategory(p)===active)&&(window.SpidersSearch?.matches({...p,category:cat.id,collection:cat.name},search.value,'product')??q.every(w=>normalized([p.title,p.description,subcategory(p)].join(' ')).includes(w))));host.replaceChildren(...list.slice(0,max).map((p,i)=>makeCard(p,i,inspirational)));more.hidden=list.length<=max;status.textContent=list.length?'Choose an item below to start customizing.':'No matching items. Try another search or style.';filters.replaceChildren();const createBtn=(text,key)=>{const b=document.createElement('button');b.type='button';b.className='collection-filter';b.setAttribute('aria-pressed',String(active===key));b.textContent=text;b.addEventListener('click',()=>{active=key;max=12;const u=new URL(location.href);key?u.searchParams.set('group',key):u.searchParams.delete('group');history.replaceState(null,'',u.pathname+u.search);draw()});filters.append(b)};createBtn('All products','');for(const key of groups.keys())createBtn(key,key)}
  search.addEventListener('input',()=>{max=12;draw()});more.addEventListener('click',()=>{max+=12;draw()});draw();
- if(['tumblers','coins','wraps'].includes(cat.id)){
-  fetch('data/designs.json').then(r=>{if(!r.ok)throw Error('Designs unavailable');return r.json()}).then(data=>{
-   if(!Array.isArray(data))return;const isCoin=cat.id==='coins';const pool=data.filter(p=>p.sprite&&(isCoin?p.kind==='coin-concept':p.kind!=='coin-concept'));
-   const picks=[],seen=new Set();for(const p of pool){if(seen.has(p.category))continue;picks.push(p);seen.add(p.category);if(picks.length===6)break}inspirational=pool.filter(p=>!picks.some(x=>x.id===p.id)).slice(0,cat.items.length);draw();
-   const section=$('#collection-artwork'),grid=$('#collection-artwork-grid');section.hidden=!picks.length;grid.replaceChildren();for(const p of picks){const el=document.createElement('a');el.className='collection-art-card';el.href=designLink(p.id,isCoin);const sp=p.sprite;const thumb=document.createElement('span');thumb.className='collection-art-sprite';thumb.setAttribute('role','img');thumb.setAttribute('aria-label',p.name);thumb.style.backgroundImage='url("'+encodeURI(sp.src).replace(/"/g,'%22')+'")';thumb.style.backgroundSize=(sp.cols*100)+'% '+(sp.rows*100)+'%';thumb.style.backgroundPosition=(sp.x/(sp.cols-1)*100)+'% '+(sp.y/(sp.rows-1)*100)+'%';const name=document.createElement('strong');name.textContent=p.name;const detail=document.createElement('span');detail.textContent='Personalize this design →';el.append(thumb,name,detail);grid.append(el)}
-  }).catch(err=>{console.warn('Could not load design inspiration',err)})
- }
- if(['hypechains','puzzles','boards','phone-cases'].includes(cat.id)){
-  fetch('data/grok-designs.json').then(r=>{if(!r.ok)throw Error('Grok designs unavailable');return r.json()}).then(payload=>{
-   const pool=(payload.designs||[]).filter(p=>p.productCategory===cat.id&&p.sprite);
+ if(['tumblers','coins','wraps','hypechains','puzzles','boards','phone-cases'].includes(cat.id)){
+  Promise.allSettled([
+   fetch('data/designs.json').then(r=>r.ok?r.json():Promise.reject(Error('Original designs unavailable'))),
+   fetch('data/grok-designs.json').then(r=>r.ok?r.json():Promise.reject(Error('Existing photos unavailable'))),
+   fetch('data/drive-designs.json').then(r=>r.ok?r.json():Promise.reject(Error('Latest photos unavailable')))
+  ]).then(([original,grok,drive])=>{
+   const oldItems=original.status==='fulfilled'&&Array.isArray(original.value)?original.value:[];
+   const saved=grok.status==='fulfilled'&&Array.isArray(grok.value?.designs)?grok.value.designs:[];
+   const newer=drive.status==='fulfilled'&&Array.isArray(drive.value?.designs)?drive.value.designs:[];
+   const pool=[...newer,...saved,...oldItems].filter(p=>p&&p.id&&p.name&&(
+    p.productCategory===cat.id||(!p.productCategory&&(cat.id==='coins'?p.kind==='coin-concept':(cat.id==='tumblers'||cat.id==='wraps')&&p.kind!=='coin-concept'))));
    if(!pool.length)return;
-   inspirational=pool.slice(0,Math.max(12,(cat.items||[]).length));draw();
+   const picks=[],seen=new Set();for(const p of pool){if(seen.has(p.category))continue;picks.push(p);seen.add(p.category);if(picks.length===12)break;}
+   inspirational=pool.slice(0,Math.max(12,cat.items.length));draw();
    const section=$('#collection-artwork'),grid=$('#collection-artwork-grid');section.hidden=false;grid.replaceChildren();
-   const heading=$('#collection-artwork-title');if(heading)heading.textContent=title+' artwork';
-   for(const p of pool.slice(0,18)){const el=document.createElement('a');el.className='collection-art-card';el.href=designLink(p.id);const sp=p.sprite,thumb=document.createElement('span');thumb.className='collection-art-sprite';thumb.setAttribute('role','img');thumb.setAttribute('aria-label',p.name+' artwork');thumb.style.backgroundImage='url("'+encodeURI(sp.src).replace(/"/g,'%22')+'")';thumb.style.backgroundSize=(sp.cols*100)+'% '+(sp.rows*100)+'%';thumb.style.backgroundPosition=(sp.x/(sp.cols-1)*100)+'% '+(sp.y/(sp.rows-1)*100)+'%';const name=document.createElement('strong');name.textContent=p.name;const detail=document.createElement('span');detail.textContent='Personalize this design →';el.append(thumb,name,detail);grid.append(el);}
-   const allLink=section.querySelector('.collection-section-heading a');if(allLink){allLink.href='shop.html?type='+encodeURIComponent(cat.id)+'#shop-designs';allLink.textContent='See all '+title+' designs →';}
-  }).catch(err=>{console.warn('Could not load category artwork',err)});
+   const heading=$('#collection-artwork-title');if(heading)heading.textContent=title+' saved artwork & product photos';
+   for(const p of [...picks,...pool.filter(p=>!picks.includes(p))].slice(0,18)){
+    const el=document.createElement('a');el.className='collection-art-card';el.href=designLink(p.id);
+    let thumb;
+    if(p.sprite){const sp=p.sprite;thumb=document.createElement('span');thumb.className='collection-art-sprite';thumb.setAttribute('role','img');thumb.setAttribute('aria-label',p.name);thumb.style.backgroundImage='url("'+encodeURI(sp.src).replace(/"/g,'%22')+'")';thumb.style.backgroundSize=(sp.cols*100)+'% '+(sp.rows*100)+'%';thumb.style.backgroundPosition=(sp.x/(sp.cols-1)*100)+'% '+(sp.y/(sp.rows-1)*100)+'%';}
+    else{thumb=document.createElement('img');thumb.className='collection-real-photo';thumb.alt=p.name+' verified photo';thumb.src=p.thumb||p.image;thumb.loading='lazy';thumb.style.cssText='width:100%;aspect-ratio:4/3;object-fit:cover';}
+    const name=document.createElement('strong');name.textContent=p.name;
+    const detail=document.createElement('span');detail.textContent='Personalize this design →';el.append(thumb,name,detail);grid.append(el);
+   }
+   const allLink=section.querySelector('.collection-section-heading a');if(allLink){allLink.href='shop.html?type='+encodeURIComponent(cat.id==='wraps'?'tumblers':cat.id)+'#shop-designs';allLink.textContent='See all '+title+' designs →';}
+  }).catch(err=>console.warn('Could not load category artwork',err));
  }
 
 })();
