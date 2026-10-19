@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "imported": 76,
+  "imported": 81,
   "source": "Google Drive: TV_Shows_and_Games_Products",
   "designs": [
     {
@@ -1587,6 +1587,101 @@
       "image": "images/drive/puzzles/shogun-03.jpg",
       "source": "Google Drive verified photo October 18, 2026",
       "sourceFile": "puzzle_Shogun_03.jpg"
+    },
+    {
+      "id": "drive-puzzle-shogun-02",
+      "name": "Shogun Puzzle — Design 02",
+      "group": "TV & Streaming",
+      "category": "TV Shows & Characters",
+      "team": "",
+      "level": "",
+      "kind": "drive-photo",
+      "productCategory": "puzzles",
+      "tags": [
+        "Shogun",
+        "TV show",
+        "puzzles"
+      ],
+      "thumb": "images/drive/puzzles/shogun-02.jpg",
+      "image": "images/drive/puzzles/shogun-02.jpg",
+      "source": "Google Drive verified photo October 18, 2026",
+      "sourceFile": "puzzle_Shogun_02.jpg"
+    },
+    {
+      "id": "drive-puzzle-shogun-01",
+      "name": "Shogun Puzzle — Design 01",
+      "group": "TV & Streaming",
+      "category": "TV Shows & Characters",
+      "team": "",
+      "level": "",
+      "kind": "drive-photo",
+      "productCategory": "puzzles",
+      "tags": [
+        "Shogun",
+        "TV show",
+        "puzzles"
+      ],
+      "thumb": "images/drive/puzzles/shogun-01.jpg",
+      "image": "images/drive/puzzles/shogun-01.jpg",
+      "source": "Google Drive verified photo October 18, 2026",
+      "sourceFile": "puzzle_Shogun_01.jpg"
+    },
+    {
+      "id": "drive-phonecase-gta-6-05",
+      "name": "GTA 6 Phone Case — Design 05",
+      "group": "Games & Entertainment",
+      "category": "Video Games",
+      "team": "",
+      "level": "",
+      "kind": "drive-photo",
+      "productCategory": "phone-cases",
+      "tags": [
+        "GTA 6",
+        "gaming",
+        "phone-cases"
+      ],
+      "thumb": "images/drive/phone-cases/gta-6-05.jpg",
+      "image": "images/drive/phone-cases/gta-6-05.jpg",
+      "source": "Google Drive verified photo October 18, 2026",
+      "sourceFile": "phonecase_GTA_6_05.jpg"
+    },
+    {
+      "id": "drive-phonecase-gta-6-04",
+      "name": "GTA 6 Phone Case — Design 04",
+      "group": "Games & Entertainment",
+      "category": "Video Games",
+      "team": "",
+      "level": "",
+      "kind": "drive-photo",
+      "productCategory": "phone-cases",
+      "tags": [
+        "GTA 6",
+        "gaming",
+        "phone-cases"
+      ],
+      "thumb": "images/drive/phone-cases/gta-6-04.jpg",
+      "image": "images/drive/phone-cases/gta-6-04.jpg",
+      "source": "Google Drive verified photo October 18, 2026",
+      "sourceFile": "phonecase_GTA_6_04.jpg"
+    },
+    {
+      "id": "drive-phonecase-gta-6-03",
+      "name": "GTA 6 Phone Case — Design 03",
+      "group": "Games & Entertainment",
+      "category": "Video Games",
+      "team": "",
+      "level": "",
+      "kind": "drive-photo",
+      "productCategory": "phone-cases",
+      "tags": [
+        "GTA 6",
+        "gaming",
+        "phone-cases"
+      ],
+      "thumb": "images/drive/phone-cases/gta-6-03.jpg",
+      "image": "images/drive/phone-cases/gta-6-03.jpg",
+      "source": "Google Drive verified photo October 18, 2026",
+      "sourceFile": "phonecase_GTA_6_03.jpg"
     }
   ],
   "description": "Verified, locally hosted Google Drive product photos. All other Drive images remain in source folders until individually verified and imported."
