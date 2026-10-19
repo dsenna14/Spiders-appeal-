@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "imported": 15,
+  "imported": 28,
   "source": "Google Drive: TV_Shows_and_Games_Products",
   "designs": [
     {
@@ -347,6 +347,288 @@
       "image": "images/drive/tumblers/gears-of-war-05.jpg",
       "source": "Google Drive verified photo October 18, 2026",
       "sourceFile": "tumbler_Gears_of_War_05.jpg"
+    },
+    {
+      "id": "drive-tumbler-stranger-things-01",
+      "name": "Stranger Things Tumbler — Design 01",
+      "group": "TV & Streaming",
+      "category": "TV Shows & Characters",
+      "team": "",
+      "level": "",
+      "kind": "drive-photo",
+      "productCategory": "tumblers",
+      "tags": [
+        "Stranger Things",
+        "Tumbler",
+        "tumblers",
+        "television",
+        "TV shows",
+        "character designs"
+      ],
+      "thumb": "images/drive/tumblers/stranger-things-01.jpg",
+      "image": "images/drive/tumblers/stranger-things-01.jpg",
+      "source": "Google Drive verified photo October 18, 2026",
+      "sourceFile": "tumbler_Stranger_Things_01.jpg"
+    },
+    {
+      "id": "drive-tumbler-stranger-things-04",
+      "name": "Stranger Things Tumbler — Design 04",
+      "group": "TV & Streaming",
+      "category": "TV Shows & Characters",
+      "team": "",
+      "level": "",
+      "kind": "drive-photo",
+      "productCategory": "tumblers",
+      "tags": [
+        "Stranger Things",
+        "Tumbler",
+        "tumblers",
+        "television",
+        "TV shows",
+        "character designs"
+      ],
+      "thumb": "images/drive/tumblers/stranger-things-04.jpg",
+      "image": "images/drive/tumblers/stranger-things-04.jpg",
+      "source": "Google Drive verified photo October 18, 2026",
+      "sourceFile": "tumbler_Stranger_Things_04.jpg"
+    },
+    {
+      "id": "drive-puzzle-the-office-04",
+      "name": "The Office Puzzle — Design 04",
+      "group": "TV & Streaming",
+      "category": "TV Shows & Characters",
+      "team": "",
+      "level": "",
+      "kind": "drive-photo",
+      "productCategory": "puzzles",
+      "tags": [
+        "The Office",
+        "Puzzle",
+        "puzzles",
+        "television",
+        "TV shows",
+        "character designs"
+      ],
+      "thumb": "images/drive/puzzles/the-office-04.jpg",
+      "image": "images/drive/puzzles/the-office-04.jpg",
+      "source": "Google Drive verified photo October 18, 2026",
+      "sourceFile": "puzzle_The_Office_04.jpg"
+    },
+    {
+      "id": "drive-puzzle-the-office-01",
+      "name": "The Office Puzzle — Design 01",
+      "group": "TV & Streaming",
+      "category": "TV Shows & Characters",
+      "team": "",
+      "level": "",
+      "kind": "drive-photo",
+      "productCategory": "puzzles",
+      "tags": [
+        "The Office",
+        "Puzzle",
+        "puzzles",
+        "television",
+        "TV shows",
+        "character designs"
+      ],
+      "thumb": "images/drive/puzzles/the-office-01.jpg",
+      "image": "images/drive/puzzles/the-office-01.jpg",
+      "source": "Google Drive verified photo October 18, 2026",
+      "sourceFile": "puzzle_The_Office_01.jpg"
+    },
+    {
+      "id": "drive-phonecase-rick-and-morty-04",
+      "name": "Rick and Morty Phone Case — Design 04",
+      "group": "TV & Streaming",
+      "category": "TV Shows & Characters",
+      "team": "",
+      "level": "",
+      "kind": "drive-photo",
+      "productCategory": "phone-cases",
+      "tags": [
+        "Rick and Morty",
+        "Phone Case",
+        "phone-cases",
+        "television",
+        "TV shows",
+        "character designs"
+      ],
+      "thumb": "images/drive/phone-cases/rick-and-morty-04.jpg",
+      "image": "images/drive/phone-cases/rick-and-morty-04.jpg",
+      "source": "Google Drive verified photo October 18, 2026",
+      "sourceFile": "phonecase_Rick_and_Morty_04.jpg"
+    },
+    {
+      "id": "drive-phonecase-rick-and-morty-01",
+      "name": "Rick and Morty Phone Case — Design 01",
+      "group": "TV & Streaming",
+      "category": "TV Shows & Characters",
+      "team": "",
+      "level": "",
+      "kind": "drive-photo",
+      "productCategory": "phone-cases",
+      "tags": [
+        "Rick and Morty",
+        "Phone Case",
+        "phone-cases",
+        "television",
+        "TV shows",
+        "character designs"
+      ],
+      "thumb": "images/drive/phone-cases/rick-and-morty-01.jpg",
+      "image": "images/drive/phone-cases/rick-and-morty-01.jpg",
+      "source": "Google Drive verified photo October 18, 2026",
+      "sourceFile": "phonecase_Rick_and_Morty_01.jpg"
+    },
+    {
+      "id": "drive-tumbler-bluey-01",
+      "name": "Bluey Tumbler — Design 01",
+      "group": "TV & Streaming",
+      "category": "TV Shows & Characters",
+      "team": "",
+      "level": "",
+      "kind": "drive-photo",
+      "productCategory": "tumblers",
+      "tags": [
+        "Bluey",
+        "Tumbler",
+        "tumblers",
+        "television",
+        "TV shows",
+        "character designs"
+      ],
+      "thumb": "images/drive/tumblers/bluey-01.jpg",
+      "image": "images/drive/tumblers/bluey-01.jpg",
+      "source": "Google Drive verified photo October 18, 2026",
+      "sourceFile": "tumbler_Bluey_01.jpg"
+    },
+    {
+      "id": "drive-tumbler-bluey-04",
+      "name": "Bluey Tumbler — Design 04",
+      "group": "TV & Streaming",
+      "category": "TV Shows & Characters",
+      "team": "",
+      "level": "",
+      "kind": "drive-photo",
+      "productCategory": "tumblers",
+      "tags": [
+        "Bluey",
+        "Tumbler",
+        "tumblers",
+        "television",
+        "TV shows",
+        "character designs"
+      ],
+      "thumb": "images/drive/tumblers/bluey-04.jpg",
+      "image": "images/drive/tumblers/bluey-04.jpg",
+      "source": "Google Drive verified photo October 18, 2026",
+      "sourceFile": "tumbler_Bluey_04.jpg"
+    },
+    {
+      "id": "drive-balloon-168",
+      "name": "Level Up Birthday Edition — Custom Balloon",
+      "group": "Occasions & Celebrations",
+      "category": "Birthday & Parties",
+      "team": "",
+      "level": "",
+      "kind": "drive-photo",
+      "productCategory": "balloons",
+      "tags": [
+        "birthday",
+        "party",
+        "celebrations",
+        "balloon",
+        "Level Up Birthday Edition"
+      ],
+      "thumb": "images/drive/balloons/168-level-up-birthday-edition.jpg",
+      "image": "images/drive/balloons/168-level-up-birthday-edition.jpg",
+      "source": "Google Drive verified balloon photo October 18, 2026",
+      "sourceFile": "balloon_168_level-up-birthday-edition.jpg"
+    },
+    {
+      "id": "drive-balloon-171",
+      "name": "Stay Wild Birthday Child — Custom Balloon",
+      "group": "Occasions & Celebrations",
+      "category": "Birthday & Parties",
+      "team": "",
+      "level": "",
+      "kind": "drive-photo",
+      "productCategory": "balloons",
+      "tags": [
+        "birthday",
+        "party",
+        "celebrations",
+        "balloon",
+        "Stay Wild Birthday Child"
+      ],
+      "thumb": "images/drive/balloons/171-stay-wild-birthday-child.jpg",
+      "image": "images/drive/balloons/171-stay-wild-birthday-child.jpg",
+      "source": "Google Drive verified balloon photo October 18, 2026",
+      "sourceFile": "balloon_171_stay-wild-birthday-child.jpg"
+    },
+    {
+      "id": "drive-balloon-164",
+      "name": "Birthday Behavior Approved — Custom Balloon",
+      "group": "Occasions & Celebrations",
+      "category": "Birthday & Parties",
+      "team": "",
+      "level": "",
+      "kind": "drive-photo",
+      "productCategory": "balloons",
+      "tags": [
+        "birthday",
+        "party",
+        "celebrations",
+        "balloon",
+        "Birthday Behavior Approved"
+      ],
+      "thumb": "images/drive/balloons/164-birthday-behavior-approved.jpg",
+      "image": "images/drive/balloons/164-birthday-behavior-approved.jpg",
+      "source": "Google Drive verified balloon photo October 18, 2026",
+      "sourceFile": "balloon_164_birthday-behavior-approved.jpg"
+    },
+    {
+      "id": "drive-balloon-173",
+      "name": "Happy Birthday You Old Fart — Custom Balloon",
+      "group": "Occasions & Celebrations",
+      "category": "Birthday & Parties",
+      "team": "",
+      "level": "",
+      "kind": "drive-photo",
+      "productCategory": "balloons",
+      "tags": [
+        "birthday",
+        "party",
+        "celebrations",
+        "balloon",
+        "Happy Birthday You Old Fart"
+      ],
+      "thumb": "images/drive/balloons/173-happy-birthday-you-old-fart.jpg",
+      "image": "images/drive/balloons/173-happy-birthday-you-old-fart.jpg",
+      "source": "Google Drive verified balloon photo October 18, 2026",
+      "sourceFile": "balloon_173_happy-birthday-you-old-fart.jpg"
+    },
+    {
+      "id": "drive-balloon-170",
+      "name": "Birthday Girl Gone Wild — Custom Balloon",
+      "group": "Occasions & Celebrations",
+      "category": "Birthday & Parties",
+      "team": "",
+      "level": "",
+      "kind": "drive-photo",
+      "productCategory": "balloons",
+      "tags": [
+        "birthday",
+        "party",
+        "celebrations",
+        "balloon",
+        "Birthday Girl Gone Wild"
+      ],
+      "thumb": "images/drive/balloons/170-birthday-girl-gone-wild.jpg",
+      "image": "images/drive/balloons/170-birthday-girl-gone-wild.jpg",
+      "source": "Google Drive verified balloon photo October 18, 2026",
+      "sourceFile": "balloon_170_birthday-girl-gone-wild.jpg"
     }
-  ]
+  ],
+  "description": "Verified, locally hosted Google Drive product photos. All other Drive images remain in source folders until individually verified and imported."
 }
