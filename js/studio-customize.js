@@ -40,22 +40,44 @@
  const toneMap={'Black & gold':'#f0ce93','Navy blue':'#c9dbfc','Rose gold':'#f4c7ba','Emerald green':'#b6f5d7','Burgundy':'#fac5d7','White & silver':'#f8f8f5'};
  let selected={id:'',name:''};if(params.get('design'))selected.id=params.get('design');if(draft){const match=String(draft.notes||'').match(/Design reference ID: ([^\s\n]+)/);if(match)selected.id=match[1];const nameMatch=String(draft.notes||'').match(/Selected design: ([^\n]+)/);if(nameMatch)selected.name=nameMatch[1]}
  const showSelection=design=>{
-  selected={id:design.id,name:design.name};const img=$('pc-image'),holder=img?.parentElement;if(holder){holder.querySelector('.studio-customized-sprite')?.remove();if(img)img.hidden=true;const sp=design.sprite;if(sp){const el=document.createElement('div');el.className='studio-customized-sprite';el.setAttribute('role','img');el.setAttribute('aria-label',design.name+' artwork inspiration');el.style.backgroundImage='url("'+encodeURI(sp.src).replace(/"/g,'%22')+'")';el.style.backgroundSize=(sp.cols*100)+'% '+(sp.rows*100)+'%';el.style.backgroundPosition=(sp.x/(sp.cols-1)*100)+'% '+(sp.y/(sp.rows-1)*100)+'%';holder.insertBefore(el,holder.firstChild)}}
+  selected={id:design.id,name:design.name};const img=$('pc-image'),holder=img?.parentElement;if(holder){holder.querySelector('.studio-customized-sprite')?.remove();if(img)img.hidden=true;const sp=design.sprite;if(sp){const el=document.createElement('div');el.className='studio-customized-sprite';el.setAttribute('role','img');el.setAttribute('aria-label',design.name+' artwork inspiration');el.style.backgroundImage='url("'+encodeURI(sp.src).replace(/"/g,'%22')+'")';el.style.backgroundSize=(sp.cols*100)+'% '+(sp.rows*100)+'%';el.style.backgroundPosition=(sp.x/(sp.cols-1)*100)+'% '+(sp.y/(sp.rows-1)*100)+'%';holder.insertBefore(el,holder.firstChild)}else if(design.image||design.thumb){const el=document.createElement('img');el.className='studio-customized-sprite';el.alt=design.name+' real saved product photo';el.loading='eager';el.src=design.image||design.thumb;el.style.objectFit='cover';holder.insertBefore(el,holder.firstChild)}}
   const box=$('studio-design-selection');if(box){box.hidden=false;box.replaceChildren();const text=document.createElement('strong');text.textContent='Selected artwork: '+design.name;const see=document.createElement('a');see.href=design.productCategory?'shop.html?type='+encodeURIComponent(category)+'#shop-designs':'design.html?id='+encodeURIComponent(design.id);see.textContent='View design details →';const clear=document.createElement('button');clear.type='button';clear.className='studio-remove-design';clear.textContent='Choose without this design';clear.addEventListener('click',()=>{selected={id:'',name:''};holder?.querySelector('.studio-customized-sprite')?.remove();if(img)img.hidden=false;box.hidden=true;const u=new URL(location.href);u.searchParams.delete('design');history.replaceState(null,'',u.pathname+u.search);drawPicker();updateSummary()});box.append(text,see,clear)}
   const u=new URL(location.href);u.searchParams.set('design',design.id);history.replaceState(null,'',u.pathname+u.search);drawPicker();updateSummary()
  };
  let designs=[];
  const picker=$('studio-choose-design'),pickerItems=$('studio-design-picker-items');
- const drawPicker=()=>{if(!pickerItems||!picker)return;const filtered=designs.filter(p=>p.id!==selected.id).slice(0,7);picker.hidden=filtered.length===0;pickerItems.replaceChildren();for(const p of filtered){const btn=document.createElement('button');btn.type='button';btn.className='studio-pick-art';btn.setAttribute('aria-label','Use '+p.name);const sprite=p.sprite,thumb=document.createElement('span');thumb.className='studio-pick-sprite';thumb.setAttribute('role','img');thumb.setAttribute('aria-label',p.name+' saved design');thumb.style.backgroundImage='url("'+encodeURI(sprite.src).replace(/"/g,'%22')+'")';thumb.style.backgroundSize=(sprite.cols*100)+'% '+(sprite.rows*100)+'%';thumb.style.backgroundPosition=(sprite.x/(sprite.cols-1)*100)+'% '+(sprite.y/(sprite.rows-1)*100)+'%';const label=document.createElement('span');label.textContent=p.name;btn.append(thumb,label);btn.addEventListener('click',()=>showSelection(p));pickerItems.append(btn)}};
- if(['tumblers','wraps','coins'].includes(category)){fetch('data/designs.json').then(r=>{if(!r.ok)throw Error('Designs not available');return r.json()}).then(all=>{const coin=category==='coins';const array=all.filter(p=>p.sprite&&(coin?p.kind==='coin-concept':p.kind!=='coin-concept'));const picks=[],seen=new Set();for(const p of array){if(!seen.has(p.category)){seen.add(p.category);picks.push(p)}}designs=[...picks,...array.filter(p=>!picks.some(x=>x.id===p.id))];if(selected.id){const item=all.find(p=>p.id===selected.id&&(coin?p.kind==='coin-concept':p.kind!=='coin-concept'));if(item)showSelection(item)}drawPicker()}).catch(err=>console.warn('Artwork picker unavailable',err))}
- if(['hypechains','puzzles','boards','phone-cases'].includes(category)){
-  fetch('data/grok-designs.json').then(r=>{if(!r.ok)throw Error('New designs unavailable');return r.json()}).then(payload=>{
-    designs=(payload.designs||[]).filter(p=>p.productCategory===category&&p.sprite);
-    if(selected.id){const matched=designs.find(p=>p.id===selected.id);if(matched)showSelection(matched)}
-    drawPicker();
-    const allLink=picker?.querySelector('a');if(allLink){allLink.href='shop.html?type='+encodeURIComponent(category)+'#shop-designs';allLink.textContent='More '+chosenProduct.collection+' designs →'}
-  }).catch(err=>console.warn('Could not load imported designs',err));
- }
+ const drawPicker=()=>{
+  if(!pickerItems||!picker)return;
+  const filtered=designs.filter(p=>p.id!==selected.id).slice(0,7);
+  picker.hidden=filtered.length===0;pickerItems.replaceChildren();
+  for(const p of filtered){
+   const btn=document.createElement('button');btn.type='button';btn.className='studio-pick-art';
+   btn.setAttribute('aria-label','Use '+p.name);
+   const thumb=p.sprite?document.createElement('span'):document.createElement('img');
+   thumb.className='studio-pick-sprite';
+   if(p.sprite){const sp=p.sprite;thumb.setAttribute('role','img');thumb.setAttribute('aria-label',p.name+' saved design');thumb.style.backgroundImage='url("'+encodeURI(sp.src).replace(/"/g,'%22')+'")';thumb.style.backgroundSize=(sp.cols*100)+'% '+(sp.rows*100)+'%';thumb.style.backgroundPosition=(sp.x/(sp.cols-1)*100)+'% '+(sp.y/(sp.rows-1)*100)+'%';}
+   else{thumb.src=p.thumb||p.image;thumb.alt=p.name+' saved product photo';thumb.loading='lazy';thumb.style.objectFit='cover';}
+   const label=document.createElement('span');label.textContent=p.name;btn.append(thumb,label);
+   btn.addEventListener('click',()=>showSelection(p));pickerItems.append(btn);
+  }
+ };
+ Promise.allSettled([
+  fetch('data/designs.json').then(r=>r.ok?r.json():Promise.reject(Error('Old artwork unavailable'))),
+  fetch('data/grok-designs.json').then(r=>r.ok?r.json():Promise.reject(Error('Imported artwork unavailable'))),
+  fetch('data/drive-designs.json').then(r=>r.ok?r.json():Promise.reject(Error('New photos unavailable')))
+ ]).then(([oldSaved,grok,drive])=>{
+  const previous=oldSaved.status==='fulfilled'&&Array.isArray(oldSaved.value)?oldSaved.value:[];
+  const saved=grok.status==='fulfilled'&&Array.isArray(grok.value?.designs)?grok.value.designs:[];
+  const latest=drive.status==='fulfilled'&&Array.isArray(drive.value?.designs)?drive.value.designs:[];
+  const pool=[...latest,...saved,...previous].filter(p=>p&&p.id&&p.name&&(
+   p.productCategory===category||(!p.productCategory&&(category==='coins'?p.kind==='coin-concept':(category==='tumblers'||category==='wraps')&&p.kind!=='coin-concept'))));
+  const picked=new Set(),front=[];
+  for(const p of pool){const key=(p.productCategory||category)+':'+p.category;if(!picked.has(key)){front.push(p);picked.add(key);}}
+  designs=[...front,...pool.filter(p=>!front.includes(p))];
+  if(selected.id){const item=pool.find(p=>p.id===selected.id);if(item)showSelection(item);}
+  drawPicker();
+  const allLink=picker?.querySelector('a');if(allLink){allLink.href='shop.html?type='+encodeURIComponent(category)+'#shop-designs';allLink.textContent='More '+chosenProduct.collection+' designs →';}
+ }).catch(err=>console.warn('Artwork picker unavailable',err));
  function updateSummary(){const heading=$('studio-summary-item'),details=$('studio-summary-details'),qty=$('studio-summary-qty');if(heading)heading.textContent=chosenProduct.title;if(qty)qty.textContent=$('pc-qty')?.value||'1';if(details){const bits=[];if(name.value.trim())bits.push('Text: '+name.value.trim().slice(0,40));if($('pc-size')?.value.trim())bits.push('Size: '+$('pc-size').value.trim().slice(0,42));if($('pc-material')?.value!=='Discuss options')bits.push($('pc-material').value);if($('studio-method')?.value!=='Please recommend')bits.push($('studio-method').value);if(selected.name)bits.push('Artwork: '+selected.name);details.textContent=bits.length?bits.join(' · '):'Choose your preferences above'}
   if(preview){const tone=toneMap[$('pc-colors')?.value]||'#f4ede1';preview.style.color=tone;const placement=$('studio-placement')?.value;preview.style.left=placement==='Edge / rim'?'8%':'10%';preview.style.right=placement==='Edge / rim'?'auto':'10%';preview.style.bottom=placement==='Edge / rim'?'12%':'7%';preview.style.maxWidth='82%'}
  }
