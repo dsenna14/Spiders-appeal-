@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "imported": 86,
+  "imported": 87,
   "source": "Google Drive: TV_Shows_and_Games_Products",
   "designs": [
     {
@@ -1476,16 +1476,15 @@
     {
       "id": "drive-phonecase-gears-of-war-04",
       "name": "Gears of War Phone Case — Design 04",
-      "group": "TV & Streaming",
-      "category": "TV Shows & Characters",
+      "group": "Games & Entertainment",
+      "category": "Video Games",
       "team": "",
       "level": "",
       "kind": "drive-photo",
       "productCategory": "phone-cases",
       "tags": [
         "Gears of War",
-        "television",
-        "TV show",
+        "gaming",
         "phone-cases"
       ],
       "thumb": "images/drive/phone-cases/gears-of-war-04.jpg",
@@ -1777,6 +1776,25 @@
       "image": "images/drive/tumblers/gta-6-03.jpg",
       "source": "Google Drive verified photo October 18, 2026",
       "sourceFile": "tumbler_GTA_6_03.jpg"
+    },
+    {
+      "id": "drive-tumbler-gta-6-02",
+      "name": "GTA 6 Tumbler — Design 02",
+      "group": "Games & Entertainment",
+      "category": "Video Games",
+      "team": "",
+      "level": "",
+      "kind": "drive-photo",
+      "productCategory": "tumblers",
+      "tags": [
+        "GTA 6",
+        "gaming",
+        "tumblers"
+      ],
+      "thumb": "images/drive/tumblers/gta-6-02.jpg",
+      "image": "images/drive/tumblers/gta-6-02.jpg",
+      "source": "Google Drive verified photo October 18, 2026",
+      "sourceFile": "tumbler_GTA_6_02.jpg"
     }
   ],
   "description": "Verified, locally hosted Google Drive product photos. All other Drive images remain in source folders until individually verified and imported."
