@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "imported": 42,
+  "imported": 46,
   "source": "Google Drive: TV_Shows_and_Games_Products",
   "designs": [
     {
@@ -936,6 +936,82 @@
       "image": "images/drive/tumblers/yellowstone-02.jpg",
       "source": "Verified Google Drive product photo",
       "sourceFile": "tumbler_Yellowstone_02.jpg"
+    },
+    {
+      "id": "drive-tumbler-fortnite-04",
+      "name": "Fortnite Tumbler — Design 04",
+      "group": "Games & Entertainment",
+      "category": "Video Games",
+      "team": "",
+      "level": "",
+      "kind": "drive-photo",
+      "productCategory": "tumblers",
+      "tags": [
+        "Fortnite",
+        "gaming",
+        "tumblers"
+      ],
+      "thumb": "images/drive/tumblers/fortnite-04.jpg",
+      "image": "images/drive/tumblers/fortnite-04.jpg",
+      "source": "Google Drive verified photo October 18, 2026",
+      "sourceFile": "tumbler_Fortnite_04.jpg"
+    },
+    {
+      "id": "drive-tumbler-fortnite-03",
+      "name": "Fortnite Tumbler — Design 03",
+      "group": "Games & Entertainment",
+      "category": "Video Games",
+      "team": "",
+      "level": "",
+      "kind": "drive-photo",
+      "productCategory": "tumblers",
+      "tags": [
+        "Fortnite",
+        "gaming",
+        "tumblers"
+      ],
+      "thumb": "images/drive/tumblers/fortnite-03.jpg",
+      "image": "images/drive/tumblers/fortnite-03.jpg",
+      "source": "Google Drive verified photo October 18, 2026",
+      "sourceFile": "tumbler_Fortnite_03.jpg"
+    },
+    {
+      "id": "drive-tumbler-fortnite-02",
+      "name": "Fortnite Tumbler — Design 02",
+      "group": "Games & Entertainment",
+      "category": "Video Games",
+      "team": "",
+      "level": "",
+      "kind": "drive-photo",
+      "productCategory": "tumblers",
+      "tags": [
+        "Fortnite",
+        "gaming",
+        "tumblers"
+      ],
+      "thumb": "images/drive/tumblers/fortnite-02.jpg",
+      "image": "images/drive/tumblers/fortnite-02.jpg",
+      "source": "Google Drive verified photo October 18, 2026",
+      "sourceFile": "tumbler_Fortnite_02.jpg"
+    },
+    {
+      "id": "drive-puzzle-gta-6-04",
+      "name": "GTA 6 Puzzle — Design 04",
+      "group": "Games & Entertainment",
+      "category": "Video Games",
+      "team": "",
+      "level": "",
+      "kind": "drive-photo",
+      "productCategory": "puzzles",
+      "tags": [
+        "GTA 6",
+        "gaming",
+        "puzzles"
+      ],
+      "thumb": "images/drive/puzzles/gta-6-04.jpg",
+      "image": "images/drive/puzzles/gta-6-04.jpg",
+      "source": "Google Drive verified photo October 18, 2026",
+      "sourceFile": "puzzle_GTA_6_04.jpg"
     }
   ],
   "description": "Verified, locally hosted Google Drive product photos. All other Drive images remain in source folders until individually verified and imported."
