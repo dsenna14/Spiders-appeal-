@@ -62,7 +62,7 @@
   if(picker){picker.innerHTML='<option value="">All collections</option>'+unique.map(c=>'<option value="'+escape(c.id)+'">'+escape(c.name)+'</option>').join('');picker.value=active;picker.addEventListener('change',()=>{active=picker.value;draw()});}
   const draw=()=>{
    const q=norm(input.value.trim());const words=q.split(/\s+/).filter(Boolean);
-   const matched=unique.map(c=>[c,(c.items||[]).filter(p=>words.every(w=>norm([p.title,p.description,c.name,c.tagline].join(' ')).includes(w)))]).filter(([c,items])=>(!active||c.id===active)&&items.length);
+   const matched=unique.map(c=>[c,(c.items||[]).filter(p=>(window.SpidersSearch?.matches({...p,category:c.id,collection:c.name,tagline:c.tagline},input.value,'product')??words.every(w=>norm([p.title,p.description,c.name,c.tagline].join(' ')).includes(w))))]).filter(([c,items])=>(!active||c.id===active)&&items.length);
    chips.replaceChildren();if(picker)picker.value=active;
    const addChip=(label,value,count)=>{const b=document.createElement('button');b.type='button';b.textContent=label+(count!==null?' ('+count+')':'');b.setAttribute('aria-pressed',String(active===value));b.addEventListener('click',()=>{active=value;draw();});chips.append(b)};
    addChip('All collections','',null);
@@ -83,30 +83,43 @@
  }
  function searchFind(){
   const input=$('#find-query'),category=$('#find-category'),mode=$('#find-mode'),status=$('#find-status'),pHost=$('#find-products'),dHost=$('#find-designs');
-  const state={limit:24,designs:[],loaded:false};
+  const state={limit:24,productLimit:36,designs:[],loaded:false};
   input.value=params.get('q')||'';mode.value=['all','products','designs'].includes(params.get('type'))?params.get('type'):'all';
   const allNames=[...new Set([...unique.map(c=>c.name),...unique.map(c=>c.id)])].sort();
   category.innerHTML='<option value="">All categories</option>'+unique.map(c=>'<option value="'+escape(c.id)+'">'+escape(c.name)+'</option>').join('');category.value=unique.some(c=>c.id===params.get('category'))?params.get('category'):'';
   const draw=()=>{
     const terms=norm(input.value).split(/\s+/).filter(Boolean),pick=mode.value,cat=category.value;
-    const matched=products.filter(p=>(!cat||p.category===cat)&&terms.every(t=>norm(p.title+' '+p.description+' '+p.collection).includes(t)));
-    const dm=state.designs.filter(p=>(!cat||(cat==='tumblers'&&p.kind!=='coin-concept')||(cat==='coins'&&p.kind==='coin-concept')||(cat==='wraps'&&p.kind!=='coin-concept')||(!['tumblers','coins','wraps'].includes(cat)&&norm(p.category+' '+p.group).includes(norm(cat))))&&terms.every(t=>norm([p.name,p.category,p.group,p.team,p.level].join(' ')).includes(t)));
-    let seen=new Set();pHost.replaceChildren(...(pick==='designs'?[]:matched.slice(0,24)).map(p=>{
+    const found=products.filter(p=>(!cat||p.category===cat)&&(window.SpidersSearch?.matches(p,input.value,'product')??terms.every(t=>norm(p.title+' '+p.description+' '+p.collection).includes(t))));
+    found.sort((a,b)=>(window.SpidersSearch?.score(b,input.value,'product')||0)-(window.SpidersSearch?.score(a,input.value,'product')||0));
+    const matched=window.SpidersSearch?.diversify(found,p=>p.category,found.length)||found;
+    const dm=state.designs.filter(p=>{const kind=p.productCategory||(p.kind==='coin-concept'?'coins':'tumblers');const catOK=!cat||kind===cat||(cat==='wraps'&&kind==='tumblers');return catOK&&(window.SpidersSearch?.matches(p,input.value,'design')??terms.every(t=>norm([p.name,p.category,p.group,p.team,p.level].join(' ')).includes(t)));}).sort((a,b)=>(window.SpidersSearch?.score(b,input.value,'design')||0)-(window.SpidersSearch?.score(a,input.value,'design')||0));
+    let seen=new Set();pHost.replaceChildren(...(pick==='designs'?[]:matched.slice(0,state.productLimit)).map(p=>{
       const node=document.createElement('article');node.className='hub-card';const img=document.createElement('div');img.className='hub-card-image';if(!seen.has(p.category)){seen.add(p.category);const im=document.createElement('img');im.src=imageMap[p.category]||'';if(im.src&&!imageMap[p.category]){img.innerHTML='<div class="hub-placeholder" role="img" aria-label="'+escape(p.collection)+' item">'+escape(p.emoji)+'<br><small>'+escape(p.collection)+'</small></div>'}else{im.alt=p.collection+' category photo';im.loading='lazy';img.append(im)}}else{img.innerHTML='<div class="hub-placeholder" role="img" aria-label="'+escape(p.collection)+' item">'+escape(p.emoji)+'<br><small>'+escape(p.collection)+'</small></div>'}const body=document.createElement('div');body.className='hub-card-body';body.innerHTML='<p class="mini">'+escape(p.collection)+'</p><h3>'+escape(p.title)+'</h3><p>Choose options, quantity and design preferences.</p><a class="button" href="'+productURL(p.id)+'">Customize →</a>';node.append(img,body);return node;
     }));
     dHost.replaceChildren(...(pick==='products'?[]:dm.slice(0,state.limit)).map(p=>{const node=document.createElement('article');node.className='hub-card';const a=document.createElement('a');a.href=designURL(p.id);a.append(designPreview(p));const body=document.createElement('div');body.className='hub-card-body';body.innerHTML='<p class="mini">'+escape(p.category)+'</p><h3><a href="'+designURL(p.id)+'">'+escape(p.name)+'</a></h3><a class="button" href="'+designURL(p.id)+'">View & personalize →</a>';node.append(a,body);return node}));
     $('#find-products-section').hidden=pick==='designs'||!matched.length;$('#find-designs-section').hidden=pick==='products'||!dm.length;
     $('#find-more').hidden=dm.length<=state.limit;
+    $('#find-more-products').hidden=found.length<=state.productLimit;
     $('#find-empty').hidden=matched.length+dm.length>0;
-    status.textContent=matched.length+dm.length?'Choose a product or design to personalize.':'Search products and designs above.';
+    status.textContent=matched.length+dm.length?found.length+' product types and '+dm.length+' design photos match your search.':'No matches yet — try another team, theme or occasion.';
     const url=new URL(location.href);for(const [key,val] of [['q',input.value.trim()],['type',pick!=='all'?pick:''],['category',cat]])val?url.searchParams.set(key,val):url.searchParams.delete(key);history.replaceState(null,'',url.pathname+url.search);
   };
-  $('#unified-search').addEventListener('submit',e=>{e.preventDefault();state.limit=24;draw()});
-  input.addEventListener('input',()=>{state.limit=24;draw()});category.addEventListener('change',()=>{state.limit=24;draw()});mode.addEventListener('change',()=>{state.limit=24;draw()});
-  $('#find-clear').addEventListener('click',()=>{input.value='';category.value='';mode.value='all';state.limit=24;draw();input.focus()});
+  $('#unified-search').addEventListener('submit',e=>{e.preventDefault();state.limit=24;state.productLimit=36;draw()});
+  input.addEventListener('input',()=>{state.limit=24;state.productLimit=36;draw()});category.addEventListener('change',()=>{state.limit=24;state.productLimit=36;draw()});mode.addEventListener('change',()=>{state.limit=24;state.productLimit=36;draw()});
+  $('#find-clear').addEventListener('click',()=>{input.value='';category.value='';mode.value='all';state.limit=24;state.productLimit=36;draw();input.focus()});
   $('#find-more').addEventListener('click',()=>{state.limit+=24;draw()});
+  $('#find-more-products').addEventListener('click',()=>{state.productLimit+=36;draw()});
   draw();
-  fetch('data/designs.json').then(r=>{if(!r.ok)throw Error('Catalog not available');return r.json()}).then(a=>{state.designs=Array.isArray(a)?a:[];state.loaded=true;draw()}).catch(()=>{state.loaded=true;draw();status.textContent+=' (Design gallery not loaded. Try Designs & Photos.)'});
+  Promise.allSettled([
+   fetch('data/designs.json').then(r=>r.ok?r.json():Promise.reject(Error('Original catalog missing'))),
+   fetch('data/grok-designs.json').then(r=>r.ok?r.json():Promise.reject(Error('Saved mockups missing'))),
+   fetch('data/drive-designs.json').then(r=>r.ok?r.json():Promise.reject(Error('Drive mockups missing')))
+  ]).then(([original,grok,drive])=>{
+   const a=original.status==='fulfilled'&&Array.isArray(original.value)?original.value:[];
+   const b=grok.status==='fulfilled'&&Array.isArray(grok.value?.designs)?grok.value.designs:[];
+   const c=drive.status==='fulfilled'&&Array.isArray(drive.value?.designs)?drive.value.designs:[];
+   state.designs=[...c,...a,...b].filter(p=>p&&p.id&&p.name);state.loaded=true;draw();
+  }).catch(()=>{state.loaded=true;draw();status.textContent+=' (Some saved designs could not be loaded.)'});
  }
  function customizeProduct(){
    const id=params.get('id'),edit=params.get('edit'),entries=readCart();

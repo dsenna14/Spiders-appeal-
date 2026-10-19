@@ -32,11 +32,25 @@ if p.exists():
     assert_true(payload.get("duplicatesSkipped")==563,"Deduplication metadata changed without review")
     print(f"Verified {len(entries)} Grok design records and their image sheets")
 else:errors.append("Design catalog not imported")
+# Verify the new Drive photos really exist in the static website.
+manifest=file("data/drive-designs.json")
+if manifest.exists():
+    photo_records=json.loads(manifest.read_text(encoding="utf-8")).get("designs",[])
+    assert_true(bool(photo_records),"No verified Drive photos imported")
+    assert_true(len({p.get("id") for p in photo_records})==len(photo_records),"Duplicate Drive photo IDs")
+    assert_true(len({p.get("image") for p in photo_records})==len(photo_records),"Duplicate Drive photo paths")
+    for p in photo_records:
+        image=p.get("image","")
+        assert_true(image.startswith("images/drive/"),f"Drive image path outside allowed directory: {image}")
+        if image.startswith("images/drive/"):assert_true((ROOT/image).is_file(),f"Missing imported photo: {image}")
+        assert_true(p.get("productCategory") in {"tumblers","phone-cases","puzzles","balloons"},f"Invalid category for {p.get('id')}")
+    print(f"Verified {len(photo_records)} new locally hosted Drive product photos")
+assert_true((ROOT/"js/search-taxonomy.js").is_file(),"Shared search vocabulary is missing")
 index=file("index.html")
 shop=file("shop.html")
 if index.exists():
     home=index.read_text(encoding="utf-8")
-    assert_true('<select id="studio-search-field"' in home,"Homepage product selector missing")
+    assert_true('<input id="studio-search-field"' in home and 'action="find.html"' in home,"Homepage global search missing")
     assert_true('<select id="studio-category-select"' in home,"Homepage category selector missing")
     assert_true('js/category-images.js' in home and 'js/studio.js' in home,"Homepage scripts missing")
 if shop.exists():

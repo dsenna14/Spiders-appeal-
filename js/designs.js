@@ -23,7 +23,7 @@
     tile.style.backgroundPosition=(s.x/(s.cols-1)*100)+'% '+(s.y/(s.rows-1)*100)+'%';
     return tile;
   }
-  const PRODUCT_IDS={'hypechains':'hypechains-1','puzzles':'puzzles-1','boards':'boards-1','phone-cases':'phone-cases-1'};
+  const PRODUCT_IDS={'hypechains':'hypechains-1','puzzles':'puzzles-1','boards':'boards-1','phone-cases':'phone-cases-1','tumblers':'tumblers-1','coins':'coins-1','balloons':'balloons-1'};
   const designHref=p=>p.productCategory?'product-customize.html?id='+encodeURIComponent(PRODUCT_IDS[p.productCategory])+'&design='+encodeURIComponent(p.id):'design.html?id='+encodeURIComponent(p.id);
   function createCard(p){
     const card=document.createElement('article');card.className='design-card';
@@ -51,7 +51,7 @@
     if(!ignore?.has('team') && state.team && p.team!==state.team)return false;
     if(!ignore?.has('level') && state.level && p.level!==state.level)return false;
     if(state.favorites && !favorites.has(p.id))return false;
-    if(state.q){const search=folded([p.name,p.group,p.category,p.team,p.level].join(' '));const terms=folded(state.q).split(/\s+/).filter(Boolean);if(!terms.every(t=>search.includes(t)))return false;}
+    if(state.q){const search=folded([p.name,p.group,p.category,p.team,p.level].join(' '));const terms=folded(state.q).split(/\s+/).filter(Boolean);if(!(window.SpidersSearch?.matches(p,state.q,'design')??terms.every(t=>search.includes(t))))return false;}
     return true;
   }
   const byName=(a,b)=>a.name.localeCompare(b.name,undefined,{sensitivity:'base'});
@@ -153,11 +153,13 @@
   function fail(error){const info='The design catalog could not load. Verify data/designs.json is deployed along with the image folders.';const host=$('#results-status')||$('#detail-title');text(host,info);console.error(error);}
   Promise.allSettled([
     fetch('data/designs.json',{cache:'default'}).then(r=>{if(!r.ok)throw Error('Original artwork unavailable');return r.json()}),
-    fetch('data/grok-designs.json',{cache:'default'}).then(r=>{if(!r.ok)throw Error('Grok artwork unavailable');return r.json()})
-  ]).then(([original,imported])=>{
+    fetch('data/grok-designs.json',{cache:'default'}).then(r=>{if(!r.ok)throw Error('Grok artwork unavailable');return r.json()}),
+    fetch('data/drive-designs.json',{cache:'default'}).then(r=>{if(!r.ok)throw Error('New Drive artwork unavailable');return r.json()})
+  ]).then(([original,imported,drive])=>{
     const legacy=original.status==='fulfilled'&&Array.isArray(original.value)?original.value:[];
     const fresh=imported.status==='fulfilled'&&Array.isArray(imported.value?.designs)?imported.value.designs:[];
-    DATA=[...legacy,...fresh].filter(x=>x&&x.id&&x.name);
+    const newPhotos=drive.status==='fulfilled'&&Array.isArray(drive.value?.designs)?drive.value.designs:[];
+    DATA=[...newPhotos,...legacy,...fresh].filter(x=>x&&x.id&&x.name);
     if(!DATA.length)throw Error('No artwork catalogs could load');
     if(document.body.dataset.designPage==='browse')startBrowse();else startDetail();
   }).catch(fail);

@@ -27,6 +27,6 @@ jobs:
           node scripts/browser-smoke.cjs
       - name: Parse all storefront JavaScript
         run: |
-          for file in js/designs.js js/studio.js js/studio-customize.js js/shop-hub.js js/collection.js js/studio-data.js js/category-images.js store-data.js; do
+          for file in js/search-taxonomy.js js/designs.js js/studio.js js/studio-customize.js js/shop-hub.js js/collection.js js/studio-data.js js/category-images.js store-data.js; do
             node --check "$file"
           done
