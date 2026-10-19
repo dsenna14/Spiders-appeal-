@@ -23,7 +23,7 @@
     tile.style.backgroundPosition=(s.x/(s.cols-1)*100)+'% '+(s.y/(s.rows-1)*100)+'%';
     return tile;
   }
-  const PRODUCT_IDS={'hypechains':'hypechains-1','puzzles':'puzzles-1','boards':'boards-1','phone-cases':'phone-cases-1','tumblers':'tumblers-1','coins':'coins-1'};
+  const PRODUCT_IDS={'hypechains':'hypechains-1','puzzles':'puzzles-1','boards':'boards-1','phone-cases':'phone-cases-1','tumblers':'tumblers-1','coins':'coins-1','balloons':'balloons-1'};
   const designHref=p=>p.productCategory?'product-customize.html?id='+encodeURIComponent(PRODUCT_IDS[p.productCategory])+'&design='+encodeURIComponent(p.id):'design.html?id='+encodeURIComponent(p.id);
   function createCard(p){
     const card=document.createElement('article');card.className='design-card';
