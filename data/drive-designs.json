@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "imported": 56,
+  "imported": 61,
   "source": "Google Drive: TV_Shows_and_Games_Products",
   "designs": [
     {
@@ -1202,6 +1202,101 @@
       "image": "images/drive/phone-cases/call-of-duty-03.jpg",
       "source": "Google Drive verified photo October 18, 2026",
       "sourceFile": "phonecase_Call_of_Duty_03.jpg"
+    },
+    {
+      "id": "drive-phonecase-call-of-duty-02",
+      "name": "Call of Duty Phone Case — Design 02",
+      "group": "Games & Entertainment",
+      "category": "Video Games",
+      "team": "",
+      "level": "",
+      "kind": "drive-photo",
+      "productCategory": "phone-cases",
+      "tags": [
+        "Call of Duty",
+        "gaming",
+        "phone-cases"
+      ],
+      "thumb": "images/drive/phone-cases/call-of-duty-02.jpg",
+      "image": "images/drive/phone-cases/call-of-duty-02.jpg",
+      "source": "Google Drive verified photo October 18, 2026",
+      "sourceFile": "phonecase_Call_of_Duty_02.jpg"
+    },
+    {
+      "id": "drive-tumbler-call-of-duty-05",
+      "name": "Call of Duty Tumbler — Design 05",
+      "group": "Games & Entertainment",
+      "category": "Video Games",
+      "team": "",
+      "level": "",
+      "kind": "drive-photo",
+      "productCategory": "tumblers",
+      "tags": [
+        "Call of Duty",
+        "gaming",
+        "tumblers"
+      ],
+      "thumb": "images/drive/tumblers/call-of-duty-05.jpg",
+      "image": "images/drive/tumblers/call-of-duty-05.jpg",
+      "source": "Google Drive verified photo October 18, 2026",
+      "sourceFile": "tumbler_Call_of_Duty_05.jpg"
+    },
+    {
+      "id": "drive-tumbler-call-of-duty-04",
+      "name": "Call of Duty Tumbler — Design 04",
+      "group": "Games & Entertainment",
+      "category": "Video Games",
+      "team": "",
+      "level": "",
+      "kind": "drive-photo",
+      "productCategory": "tumblers",
+      "tags": [
+        "Call of Duty",
+        "gaming",
+        "tumblers"
+      ],
+      "thumb": "images/drive/tumblers/call-of-duty-04.jpg",
+      "image": "images/drive/tumblers/call-of-duty-04.jpg",
+      "source": "Google Drive verified photo October 18, 2026",
+      "sourceFile": "tumbler_Call_of_Duty_04.jpg"
+    },
+    {
+      "id": "drive-tumbler-call-of-duty-03",
+      "name": "Call of Duty Tumbler — Design 03",
+      "group": "Games & Entertainment",
+      "category": "Video Games",
+      "team": "",
+      "level": "",
+      "kind": "drive-photo",
+      "productCategory": "tumblers",
+      "tags": [
+        "Call of Duty",
+        "gaming",
+        "tumblers"
+      ],
+      "thumb": "images/drive/tumblers/call-of-duty-03.jpg",
+      "image": "images/drive/tumblers/call-of-duty-03.jpg",
+      "source": "Google Drive verified photo October 18, 2026",
+      "sourceFile": "tumbler_Call_of_Duty_03.jpg"
+    },
+    {
+      "id": "drive-tumbler-call-of-duty-02",
+      "name": "Call of Duty Tumbler — Design 02",
+      "group": "Games & Entertainment",
+      "category": "Video Games",
+      "team": "",
+      "level": "",
+      "kind": "drive-photo",
+      "productCategory": "tumblers",
+      "tags": [
+        "Call of Duty",
+        "gaming",
+        "tumblers"
+      ],
+      "thumb": "images/drive/tumblers/call-of-duty-02.jpg",
+      "image": "images/drive/tumblers/call-of-duty-02.jpg",
+      "source": "Google Drive verified photo October 18, 2026",
+      "sourceFile": "tumbler_Call_of_Duty_02.jpg"
     }
   ],
   "description": "Verified, locally hosted Google Drive product photos. All other Drive images remain in source folders until individually verified and imported."
