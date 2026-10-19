@@ -18,16 +18,21 @@ async function expectCards(selector,minimum){await page.waitForFunction(([sel,mi
 try{
  await go('index.html');
  await wait(page,'#studio-category-grid .studio-category-card[data-category="hypechains"]');
- await page.waitForFunction(()=>document.querySelector('#studio-search-field')?.options.length>20);
+ await page.waitForFunction(()=>document.querySelector('#studio-category-select')?.options.length>20);
  for(const key of ['hypechains','puzzles','boards','phone-cases','balloons','magnets']){
-  assert(await page.locator('#studio-search-field option[value="'+key+'"]').count(),'Missing homepage category '+key);
+  assert(await page.locator('#studio-category-select option[value="'+key+'"]').count(),'Missing homepage category '+key);
  }
  assert(await page.locator('.studio-category-card[data-category="hypechains"] img').count(),'Hype chain homepage photo missing');
  assert(await page.locator('.studio-category-card[data-category="magnets"] img').count(),'Magnet must have a photo, not an emoji');
  await page.locator('#studio-category-select').selectOption('hypechains');
  assert.equal(await page.locator('#studio-category-grid .studio-category-card:not([hidden])').count(),1,'Homepage selector should isolate category');
- await page.locator('#studio-search-field').selectOption('hypechains');
- await Promise.all([page.waitForURL(/collection\.html\?category=hypechains/),page.locator('.studio-search button').click()]);
+ await page.locator('#studio-search-field').fill('birthday');
+ await Promise.all([page.waitForURL(/find\.html\?q=birthday/),page.locator('.studio-search button').click()]);
+ await wait(page,'#find-products .hub-card');
+ await wait(page,'#find-designs .hub-card');
+ assert(await page.locator('#find-products .hub-card').count()>20,'Birthday should show relevant products across collections');
+ await go('index.html');
+ await Promise.all([page.waitForURL(/collection\.html\?category=hypechains/),page.locator('.studio-category-card[data-category="hypechains"]').click()]);
  await wait(page,'#collection-artwork:not([hidden]) .collection-art-card');
  assert(await page.locator('#collection-artwork .collection-art-card').count()>=10,'Hype chain saved artwork should load');
  const shopHref=await page.locator('#collection-designs-link').getAttribute('href');
@@ -73,6 +78,6 @@ try{
  const first=await page.locator('.design-card-image').first().getAttribute('href');
  assert(first?.includes('product-customize.html?id=hypechains-'),'Legacy gallery not linked to hype chain customizer');
  if(problems.length)throw Error('Uncaught browser errors: '+problems.join(' | '));
- console.log('PASS: home dropdown/photos, Hype Chains, category-only shop, design choice, basket and rotated shop listings.');
+ console.log('PASS: home global search/photos, Hype Chains, category-only shop, design choice, basket and rotated shop listings.');
 }finally{await browser.close()}
 })().catch(err=>{console.error(err);process.exitCode=1});
