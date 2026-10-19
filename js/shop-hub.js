@@ -83,7 +83,7 @@
  }
  function searchFind(){
   const input=$('#find-query'),category=$('#find-category'),mode=$('#find-mode'),status=$('#find-status'),pHost=$('#find-products'),dHost=$('#find-designs');
-  const state={limit:24,designs:[],loaded:false};
+  const state={limit:24,productLimit:36,designs:[],loaded:false};
   input.value=params.get('q')||'';mode.value=['all','products','designs'].includes(params.get('type'))?params.get('type'):'all';
   const allNames=[...new Set([...unique.map(c=>c.name),...unique.map(c=>c.id)])].sort();
   category.innerHTML='<option value="">All categories</option>'+unique.map(c=>'<option value="'+escape(c.id)+'">'+escape(c.name)+'</option>').join('');category.value=unique.some(c=>c.id===params.get('category'))?params.get('category'):'';
@@ -91,22 +91,24 @@
     const terms=norm(input.value).split(/\s+/).filter(Boolean),pick=mode.value,cat=category.value;
     const found=products.filter(p=>(!cat||p.category===cat)&&(window.SpidersSearch?.matches(p,input.value,'product')??terms.every(t=>norm(p.title+' '+p.description+' '+p.collection).includes(t))));
     found.sort((a,b)=>(window.SpidersSearch?.score(b,input.value,'product')||0)-(window.SpidersSearch?.score(a,input.value,'product')||0));
-    const matched=window.SpidersSearch?.diversify(found,p=>p.category,72)||found.slice(0,72);
+    const matched=window.SpidersSearch?.diversify(found,p=>p.category,found.length)||found;
     const dm=state.designs.filter(p=>{const kind=p.productCategory||(p.kind==='coin-concept'?'coins':'tumblers');const catOK=!cat||kind===cat||(cat==='wraps'&&kind==='tumblers');return catOK&&(window.SpidersSearch?.matches(p,input.value,'design')??terms.every(t=>norm([p.name,p.category,p.group,p.team,p.level].join(' ')).includes(t)));}).sort((a,b)=>(window.SpidersSearch?.score(b,input.value,'design')||0)-(window.SpidersSearch?.score(a,input.value,'design')||0));
-    let seen=new Set();pHost.replaceChildren(...(pick==='designs'?[]:matched.slice(0,24)).map(p=>{
+    let seen=new Set();pHost.replaceChildren(...(pick==='designs'?[]:matched.slice(0,state.productLimit)).map(p=>{
       const node=document.createElement('article');node.className='hub-card';const img=document.createElement('div');img.className='hub-card-image';if(!seen.has(p.category)){seen.add(p.category);const im=document.createElement('img');im.src=imageMap[p.category]||'';if(im.src&&!imageMap[p.category]){img.innerHTML='<div class="hub-placeholder" role="img" aria-label="'+escape(p.collection)+' item">'+escape(p.emoji)+'<br><small>'+escape(p.collection)+'</small></div>'}else{im.alt=p.collection+' category photo';im.loading='lazy';img.append(im)}}else{img.innerHTML='<div class="hub-placeholder" role="img" aria-label="'+escape(p.collection)+' item">'+escape(p.emoji)+'<br><small>'+escape(p.collection)+'</small></div>'}const body=document.createElement('div');body.className='hub-card-body';body.innerHTML='<p class="mini">'+escape(p.collection)+'</p><h3>'+escape(p.title)+'</h3><p>Choose options, quantity and design preferences.</p><a class="button" href="'+productURL(p.id)+'">Customize →</a>';node.append(img,body);return node;
     }));
     dHost.replaceChildren(...(pick==='products'?[]:dm.slice(0,state.limit)).map(p=>{const node=document.createElement('article');node.className='hub-card';const a=document.createElement('a');a.href=designURL(p.id);a.append(designPreview(p));const body=document.createElement('div');body.className='hub-card-body';body.innerHTML='<p class="mini">'+escape(p.category)+'</p><h3><a href="'+designURL(p.id)+'">'+escape(p.name)+'</a></h3><a class="button" href="'+designURL(p.id)+'">View & personalize →</a>';node.append(a,body);return node}));
     $('#find-products-section').hidden=pick==='designs'||!matched.length;$('#find-designs-section').hidden=pick==='products'||!dm.length;
     $('#find-more').hidden=dm.length<=state.limit;
+    $('#find-more-products').hidden=found.length<=state.productLimit;
     $('#find-empty').hidden=matched.length+dm.length>0;
     status.textContent=matched.length+dm.length?found.length+' product types and '+dm.length+' design photos match your search.':'No matches yet — try another team, theme or occasion.';
     const url=new URL(location.href);for(const [key,val] of [['q',input.value.trim()],['type',pick!=='all'?pick:''],['category',cat]])val?url.searchParams.set(key,val):url.searchParams.delete(key);history.replaceState(null,'',url.pathname+url.search);
   };
-  $('#unified-search').addEventListener('submit',e=>{e.preventDefault();state.limit=24;draw()});
-  input.addEventListener('input',()=>{state.limit=24;draw()});category.addEventListener('change',()=>{state.limit=24;draw()});mode.addEventListener('change',()=>{state.limit=24;draw()});
-  $('#find-clear').addEventListener('click',()=>{input.value='';category.value='';mode.value='all';state.limit=24;draw();input.focus()});
+  $('#unified-search').addEventListener('submit',e=>{e.preventDefault();state.limit=24;state.productLimit=36;draw()});
+  input.addEventListener('input',()=>{state.limit=24;state.productLimit=36;draw()});category.addEventListener('change',()=>{state.limit=24;state.productLimit=36;draw()});mode.addEventListener('change',()=>{state.limit=24;state.productLimit=36;draw()});
+  $('#find-clear').addEventListener('click',()=>{input.value='';category.value='';mode.value='all';state.limit=24;state.productLimit=36;draw();input.focus()});
   $('#find-more').addEventListener('click',()=>{state.limit+=24;draw()});
+  $('#find-more-products').addEventListener('click',()=>{state.productLimit+=36;draw()});
   draw();
   Promise.allSettled([
    fetch('data/designs.json').then(r=>r.ok?r.json():Promise.reject(Error('Original catalog missing'))),
