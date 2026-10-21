@@ -11,12 +11,14 @@
  const storeKey='spiders-basket';
  const readCart=()=>{try{const a=JSON.parse(localStorage.getItem(storeKey)||'[]');return Array.isArray(a)?a:[]}catch{return[]}};
  const storeCart=a=>{try{localStorage.setItem(storeKey,JSON.stringify(a));return true}catch{return false}};
- const productURL=id=>'product-customize.html?id='+encodeURIComponent(id);
+ const productURL=id=>String(id).startsWith('custom-nails-')?'custom-nails.html?design='+encodeURIComponent(id):'product-customize.html?id='+encodeURIComponent(id);
+ const categoryURL=id=>id==='custom-nails'?'custom-nails.html':'collection.html?category='+encodeURIComponent(id);
  const designURL=id=>'design.html?id='+encodeURIComponent(id);
  const norm=s=>String(s||'').toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g,'');
  const extra=[['tumblers','collection-tumblers.webp'],['coins','collection-awards.webp'],['engraving','collection-awards.webp'],['boards','collection-kitchenware.webp'],['glassware','collection-glassware.webp'],['awards','collection-trophies.webp'],['medals','collection-medals.webp'],['wedding','collection-wedding.webp'],['printing','collection-printing.webp'],['patches','collection-apparel.webp'],['lighters','collection-lighters.webp'],['bottles','collection-liquor-bottles.webp'],['canvas','collection-canvas.webp'],['printing3d','collection-gaming.webp'],['transfers','collection-transfers.webp'],['gifts','collection-wedding.webp'],['metal','collection-awards.webp'],['promo','collection-printing.webp'],['wraps','collection-tumblers.webp']];
  const imageMap={...Object.fromEntries(extra.map(([k,v])=>[k,'images/'+v])),...(window.SPIDERS_CATEGORY_IMAGES||{})};
  const rules={
+  'custom-nails':[['Goth & bold',/crow|moon|night|witch|rose|monochrome|absinthe|damask/i],['Seasonal & fantasy',/pumpkin|blood|snow|starry/i],['Elegant & nature',/dusk|patina|wings|fig|driftwood/i]],
   tumblers:[['Sizes & drinkware styles',/\b(20|30|40)\s?oz\b|straw|insulated|bottle|cup|skinny/i],['Sports & team designs',/sport|team|football|basketball|baseball|hockey|soccer/i],['Fishing & outdoors',/fish|coastal|camp|outdoor|boat/i],['Animals, flowers & artwork',/wildlife|animal|floral|botan|psychedelic|abstract|nature/i]],
   coins:[['Military & first responders',/military|veteran|firefighter|responder|police/i],['Milestones & awards',/graduat|retire|birthday|annivers|recognition|celebrat/i],['Fantasy & historical',/fantasy|medieval|viking|norse|dragon/i],['Animals & nature',/animal|wildlife|nature/i]],
   engraving:[['Metal engraving',/metal|brass|steel|business card|plate|tag|jewelry/i],['Wood & keepsakes',/wood|box|keepsake/i],['Photos & portraits',/photo|slate|portrait/i]],
@@ -52,7 +54,7 @@
   const image=imageMap[c.id]||'';
   const groups=grouped(ps);
   const children=[...groups].map(([name,list])=>`<section class="hub-subgroup"><h3>${escape(name)} <span class="result-count">(${list.length})</span></h3><ul>${list.map(p=>`<li><a href="${productURL(p.id)}" aria-label="Customize ${escape(p.title)}">${escape(p.title)} <span>Customize →</span></a></li>`).join('')}</ul></section>`).join('');
-  return `<article id="group-${escape(c.id)}" class="hub-collection"><div class="hub-collection-head"><a class="hub-collection-image" href="collection.html?category=${encodeURIComponent(c.id)}">${image?`<img src="${escape(image)}" alt="${escape(c.name)} category example" loading="lazy" decoding="async">`:`<span class="hub-category-illustration" aria-hidden="true">${escape(c.emoji||"✦")}</span>`}</a><div><p class="eyebrow">MADE PERSONAL FOR YOU</p><h2><a href="collection.html?category=${encodeURIComponent(c.id)}">${escape(c.name)}</a></h2><p>${escape(c.tagline||'Made to order and personalized to your requirements.')}</p><a href="collection.html?category=${encodeURIComponent(c.id)}" class="text-link">Explore this collection →</a></div></div><div class="hub-subgroups">${children}</div></article>`;
+  return `<article id="group-${escape(c.id)}" class="hub-collection"><div class="hub-collection-head"><a class="hub-collection-image" href="${categoryURL(c.id)}">${image?`<img src="${escape(image)}" alt="${escape(c.name)} category example" loading="lazy" decoding="async">`:`<span class="hub-category-illustration" aria-hidden="true">${escape(c.emoji||"✦")}</span>`}</a><div><p class="eyebrow">MADE PERSONAL FOR YOU</p><h2><a href="${categoryURL(c.id)}">${escape(c.name)}</a></h2><p>${escape(c.tagline||'Made to order and personalized to your requirements.')}</p><a href="${categoryURL(c.id)}" class="text-link">Explore this collection →</a></div></div><div class="hub-subgroups">${children}</div></article>`;
  }
  function showProducts(){
   const host=$('#types-collections'),input=$('#types-search'),chips=$('#types-chips'),status=$('#types-status'),picker=$('#types-category-select');
