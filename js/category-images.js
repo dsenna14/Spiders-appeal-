@@ -1,6 +1,7 @@
 /* Category photo map. Existing site photography is preferred.
    External images are inspiration, not completed Spider's Creations orders. */
 window.SPIDERS_CATEGORY_IMAGES=Object.freeze({
+"custom-nails":"https://www.joyeenails.com/cdn/shop/files/monochrome-bk015-xs-medium-stiletto-3736530.webp?crop=center&height=430&v=1791803828&width=345",
 tumblers:"images/collection-tumblers.webp",boards:"images/grok/boards-cover.webp",
 magnets:"https://images.unsplash.com/photo-1487770931682-b80013ed9cc9?auto=format&fit=crop&w=900&q=82",
 keychains:"https://images.unsplash.com/photo-1676276550349-580c49631496?auto=format&fit=crop&w=900&q=82",
