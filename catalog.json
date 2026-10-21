@@ -116,7 +116,7 @@
       "Logo"
     ],
     "brief": "Send the intended item, print dimensions, artwork, and quantity.",
-    "note": "We\u2019ll confirm a suitable process after reviewing your substrate and the artwork."
+    "note": "We’ll confirm a suitable process after reviewing your substrate and the artwork."
   },
   {
     "slug": "canvas",
@@ -389,5 +389,24 @@
     ],
     "brief": "Specify the item, dimensions, quantity, and whether each piece needs a unique name.",
     "note": "Share your budget per piece so we can discuss a practical material and finish."
+  },
+  {
+    "slug": "custom-nails",
+    "title": "Custom Nails",
+    "tagline": "Personalized press-on nail art, sized your way.",
+    "description": "Explore third-party press-on nail style references or ask about your own original nail-art concept.",
+    "materials": [
+      "Press-on nail blanks — source to confirm",
+      "Gel or hand-painted finish — feasibility to confirm",
+      "Customer-supplied nail set — suitability to confirm"
+    ],
+    "ideas": [
+      "Custom color palette",
+      "French, cat-eye, ombré or chrome look",
+      "Floral, gothic or seasonal pattern",
+      "Matching designs for special occasions"
+    ],
+    "brief": "Share desired size, shape, length, color, artwork, quantity and a clear reference photo or link.",
+    "note": "Third-party Joyee Nails examples are inspiration only, not company inventory. Source images and original artwork belong to their owner; availability, rights, production and pricing must be approved before accepting an order."
   }
 ]
